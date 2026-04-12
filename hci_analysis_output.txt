@@ -1,0 +1,1758 @@
+﻿File size: 238768 bytes
+
+======================================================================
+ALL OCCURRENCES OF "FF 00 C2" (MFG Data + Company 0xC200)
+======================================================================
+
+Found 175 MFG 0xC200 occurrences
+
+--- First 50 occurrences (chronological from file) ---
+
+  #1 @270 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22
+  #2 @1211 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22
+  #3 @1514 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #4 @2047 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #5 @2478 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22
+  #6 @2969 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22
+  #7 @3340 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22
+  #8 @3839 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #9 @4874 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #10 @5297 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22
+  #11 @5668 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22
+  #12 @6206 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22
+  #13 @6577 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #14 @7306 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #15 @7805 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 4c 00 3b c7 b6 2d 83
+  #16 @8228 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22
+  #17 @8531 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22
+  #18 @9064 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22
+  #19 @9563 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #20 @10417 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #21 @10856 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14
+  #22 @11329 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14
+  #23 @11700 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14
+  #24 @12003 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14
+  #25 @12544 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #26 @13205 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #27 @13644 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14
+  #28 @14015 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14
+  #29 @14676 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14
+  #30 @14979 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14
+  #31 @15350 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #32 @16034 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #33 @16405 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 65 23 00 3b c7 b6 85 c7
+  #34 @16938 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 08 23 00 3b c7 b6 eb 75
+  #35 @17241 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 08 23 00 3b c7 b6 eb 75
+  #36 @17680 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 08 23 00 3b c7 b6 eb 75
+  #37 @17983 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 08 23 00 3b c7 b6 eb 75
+  #38 @18354 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 08 23 00 3b c7 b6 eb 75
+  #39 @19057 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 08 23 00 3b c7 b6 eb 75
+  #40 @19658 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 08 23 00 3b c7 b6 eb 75
+  #41 @20029 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 08 23 00 3b c7 b6 eb 75
+  #42 @20434 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #43 @21035 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+  #44 @21406 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da e9 23 00 3b c7 b6 d3 f3
+  #45 @21777 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da eb 23 00 3b c7 b6 85 fb
+  #46 @22148 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da eb 23 00 3b c7 b6 85 fb
+  #47 @22519 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da eb 23 00 3b c7 b6 85 fb
+  #48 @22890 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da eb 23 00 3b c7 b6 85 fb
+  #49 @23423 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da eb 23 00 3b c7 b6 85 fb
+  #50 @23922 adLen=27 payload(24b): ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da eb 23 00 3b c7 b6 85 fb
+
+======================================================================
+UNIQUE PAYLOADS
+======================================================================
+
+Unique payloads: 43
+
+CMD #  1: x 16 | ee1bc8af9f3ccd422ce374ca6bff42da072c003bc7b69e22
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0x2c 0x00 0x3b 0xc7 0xb6 0x9e 0x22
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7  44   0  59 199 182 158  34
+
+CMD #  2: x 43 | ee1bc8af9f3ccd422ce374ca6bff42da0723003bc7b66248
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0x23 0x00 0x3b 0xc7 0xb6 0x62 0x48
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7  35   0  59 199 182  98  72
+
+CMD #  3: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da074c003bc7b62d83
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0x4c 0x00 0x3b 0xc7 0xb6 0x2d 0x83
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7  76   0  59 199 182  45 131
+
+CMD #  4: x 13 | ee1bc8af9f3ccd422ce374ca6bff42da07cf003bc7b6b414
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0xcf 0x00 0x3b 0xc7 0xb6 0xb4 0x14
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7 207   0  59 199 182 180  20
+
+CMD #  5: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da6523003bc7b685c7
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x65 0x23 0x00 0x3b 0xc7 0xb6 0x85 0xc7
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 101  35   0  59 199 182 133 199
+
+CMD #  6: x 28 | ee1bc8af9f3ccd422ce374ca6bff42da0823003bc7b6eb75
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x08 0x23 0x00 0x3b 0xc7 0xb6 0xeb 0x75
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   8  35   0  59 199 182 235 117
+
+CMD #  7: x  2 | ee1bc8af9f3ccd422ce374ca6bff42dae923003bc7b6d3f3
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0xe9 0x23 0x00 0x3b 0xc7 0xb6 0xd3 0xf3
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 233  35   0  59 199 182 211 243
+
+CMD #  8: x 21 | ee1bc8af9f3ccd422ce374ca6bff42daeb23003bc7b685fb
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0xeb 0x23 0x00 0x3b 0xc7 0xb6 0x85 0xfb
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 235  35   0  59 199 182 133 251
+
+CMD #  9: x  3 | ee1bc8af9f3ccd422ce374ca6bff42daef23003bc7b629eb
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0xef 0x23 0x00 0x3b 0xc7 0xb6 0x29 0xeb
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 239  35   0  59 199 182  41 235
+
+CMD # 10: x  2 | ee1bc8af9f3ccd422ce374ca6bff42daed23003bc7b67fe3
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0xed 0x23 0x00 0x3b 0xc7 0xb6 0x7f 0xe3
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 237  35   0  59 199 182 127 227
+
+CMD # 11: x  3 | ee1bc8af9f3ccd422ce374ca6bff42daec23003bc7b654e7
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0xec 0x23 0x00 0x3b 0xc7 0xb6 0x54 0xe7
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 236  35   0  59 199 182  84 231
+
+CMD # 12: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da9623003bc7b65b0b
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x96 0x23 0x00 0x3b 0xc7 0xb6 0x5b 0x0b
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 150  35   0  59 199 182  91  11
+
+CMD # 13: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da8723003bc7b6c04d
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x87 0x23 0x00 0x3b 0xc7 0xb6 0xc0 0x4d
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 135  35   0  59 199 182 192  77
+
+CMD # 14: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da1423003bc7b6af06
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x14 0x23 0x00 0x3b 0xc7 0xb6 0xaf 0x06
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218  20  35   0  59 199 182 175   6
+
+CMD # 15: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da2223003bc7b685d9
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x22 0x23 0x00 0x3b 0xc7 0xb6 0x85 0xd9
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218  34  35   0  59 199 182 133 217
+
+CMD # 16: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da0727003bc7b67265
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0x27 0x00 0x3b 0xc7 0xb6 0x72 0x65
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7  39   0  59 199 182 114 101
+
+CMD # 17: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da075c003bc7b66d37
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0x5c 0x00 0x3b 0xc7 0xb6 0x6d 0x37
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7  92   0  59 199 182 109  55
+
+CMD # 18: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da075e003bc7b6e521
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0x5e 0x00 0x3b 0xc7 0xb6 0xe5 0x21
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7  94   0  59 199 182 229  33
+
+CMD # 19: x  2 | ee1bc8af9f3ccd422ce374ca6bff42da075d003bc7b6293c
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0x5d 0x00 0x3b 0xc7 0xb6 0x29 0x3c
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7  93   0  59 199 182  41  60
+
+CMD # 20: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da07e0003bc7b6d91e
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0xe0 0x00 0x3b 0xc7 0xb6 0xd9 0x1e
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7 224   0  59 199 182 217  30
+
+CMD # 21: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da0779003bc7b6a871
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0x79 0x00 0x3b 0xc7 0xb6 0xa8 0x71
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7 121   0  59 199 182 168 113
+
+CMD # 22: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da07c6003bc7b6d045
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0xc6 0x00 0x3b 0xc7 0xb6 0xd0 0x45
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7 198   0  59 199 182 208  69
+
+CMD # 23: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da07c5003bc7b61c58
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0xc5 0x00 0x3b 0xc7 0xb6 0x1c 0x58
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7 197   0  59 199 182  28  88
+
+CMD # 24: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da0785003bc7b63e99
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0x85 0x00 0x3b 0xc7 0xb6 0x3e 0x99
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7 133   0  59 199 182  62 153
+
+CMD # 25: x  2 | ee1bc8af9f3ccd422ce374ca6bff42da6423003bc7b6aec3
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x64 0x23 0x00 0x3b 0xc7 0xb6 0xae 0xc3
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 100  35   0  59 199 182 174 195
+
+CMD # 26: x  1 | ee1bc8af9f3ccd422ce374ca6bff42daaf23003bc7b6f8e9
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0xaf 0x23 0x00 0x3b 0xc7 0xb6 0xf8 0xe9
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 175  35   0  59 199 182 248 233
+
+CMD # 27: x  1 | ee1bc8af9f3ccd422ce374ca6bff42dade23003bc7b6d228
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0xde 0x23 0x00 0x3b 0xc7 0xb6 0xd2 0x28
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 222  35   0  59 199 182 210  40
+
+CMD # 28: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da7f23003bc7b63bac
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x7f 0x23 0x00 0x3b 0xc7 0xb6 0x3b 0xac
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 127  35   0  59 199 182  59 172
+
+CMD # 29: x  1 | ee1bc8af9f3ccd422ce374ca6bff42dad923003bc7b60334
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0xd9 0x23 0x00 0x3b 0xc7 0xb6 0x03 0x34
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 217  35   0  59 199 182   3  52
+
+CMD # 30: x  1 | ee1bc8af9f3ccd422ce374ca6bff42daa923003bc7b602f1
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0xa9 0x23 0x00 0x3b 0xc7 0xb6 0x02 0xf1
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 169  35   0  59 199 182   2 241
+
+CMD # 31: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da2a23003bc7b6ddf8
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x2a 0x23 0x00 0x3b 0xc7 0xb6 0xdd 0xf8
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218  42  35   0  59 199 182 221 248
+
+CMD # 32: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da3b23003bc7b646be
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x3b 0x23 0x00 0x3b 0xc7 0xb6 0x46 0xbe
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218  59  35   0  59 199 182  70 190
+
+CMD # 33: x  1 | ee1bc8af9f3ccd422ce374ca6bff42dace23003bc7b6626a
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0xce 0x23 0x00 0x3b 0xc7 0xb6 0x62 0x6a
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 206  35   0  59 199 182  98 106
+
+CMD # 34: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da1e23003bc7b6a12f
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x1e 0x23 0x00 0x3b 0xc7 0xb6 0xa1 0x2f
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218  30  35   0  59 199 182 161  47
+
+CMD # 35: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da1223003bc7b6551e
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x12 0x23 0x00 0x3b 0xc7 0xb6 0x55 0x1e
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218  18  35   0  59 199 182  85  30
+
+CMD # 36: x  6 | ee1bc8af9f3ccd422ce374ca6bff42da3023003bc7b66393
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x30 0x23 0x00 0x3b 0xc7 0xb6 0x63 0x93
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218  48  35   0  59 199 182  99 147
+
+CMD # 37: x  4 | ee1bc8af9f3ccd422ce374ca6bff42da3018003bc7b65e00
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x30 0x18 0x00 0x3b 0xc7 0xb6 0x5e 0x00
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218  48  24   0  59 199 182  94   0
+
+CMD # 38: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da30cb003bc7b6a5e2
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x30 0xcb 0x00 0x3b 0xc7 0xb6 0xa5 0xe2
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218  48 203   0  59 199 182 165 226
+
+CMD # 39: x  1 | ee1bc8af9f3ccd41fa2ab4ca6bffb62ea682c9f20e7fcb23
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x41 0xfa 0x2a 0xb4 0xca 0x6b 0xff 0xb6 0x2e 0xa6 0x82 0xc9 0xf2 0x0e 0x7f 0xcb 0x23
+         238  27 200 175 159  60 205  65 250  42 180 202 107 255 182  46 166 130 201 242  14 127 203  35
+
+CMD # 40: x  1 | ee1bc8af9f3ccd422ce374ca6bff42dab623003bc7b63b8e
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0xb6 0x23 0x00 0x3b 0xc7 0xb6 0x3b 0x8e
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218 182  35   0  59 199 182  59 142
+
+CMD # 41: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da071f003bc7b683eb
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0x1f 0x00 0x3b 0xc7 0xb6 0x83 0xeb
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7  31   0  59 199 182 131 235
+
+CMD # 42: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da0773003bc7b6003d
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0x73 0x00 0x3b 0xc7 0xb6 0x00 0x3d
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7 115   0  59 199 182   0  61
+
+CMD # 43: x  1 | ee1bc8af9f3ccd422ce374ca6bff42da0723d33bc7b6d795
+         0xee 0x1b 0xc8 0xaf 0x9f 0x3c 0xcd 0x42 0x2c 0xe3 0x74 0xca 0x6b 0xff 0x42 0xda 0x07 0x23 0xd3 0x3b 0xc7 0xb6 0xd7 0x95
+         238  27 200 175 159  60 205  66  44 227 116 202 107 255  66 218   7  35 211  59 199 182 215 149
+
+======================================================================
+BYTE-BY-BYTE ANALYSIS (24 bytes, 43 unique commands)
+======================================================================
+
+  Byte[ 0] CONST = 0xee (238)
+  Byte[ 1] CONST = 0x1b (27)
+  Byte[ 2] CONST = 0xc8 (200)
+  Byte[ 3] CONST = 0xaf (175)
+  Byte[ 4] CONST = 0x9f (159)
+  Byte[ 5] CONST = 0x3c (60)
+  Byte[ 6] CONST = 0xcd (205)
+  Byte[ 7] VAR   = [41 42] (2 unique, dec: 65,66)
+  Byte[ 8] VAR   = [2c fa] (2 unique, dec: 44,250)
+  Byte[ 9] VAR   = [2a e3] (2 unique, dec: 42,227)
+  Byte[10] VAR   = [74 b4] (2 unique, dec: 116,180)
+  Byte[11] CONST = 0xca (202)
+  Byte[12] CONST = 0x6b (107)
+  Byte[13] CONST = 0xff (255)
+  Byte[14] VAR   = [42 b6] (2 unique, dec: 66,182)
+  Byte[15] VAR   = [2e da] (2 unique, dec: 46,218)
+  Byte[16] VAR   = range 7-239 (26 unique)
+  Byte[17] VAR   = range 24-224 (18 unique)
+  Byte[18] VAR   = [00 c9 d3] (3 unique, dec: 0,201,211)
+  Byte[19] VAR   = [3b f2] (2 unique, dec: 59,242)
+  Byte[20] VAR   = [0e c7] (2 unique, dec: 14,199)
+  Byte[21] VAR   = [7f b6] (2 unique, dec: 127,182)
+  Byte[22] VAR   = range 0-248 (38 unique)
+  Byte[23] VAR   = range 0-251 (41 unique)
+
+======================================================================
+GROUPING BY BYTE[0] (possible command category)
+======================================================================
+
+
+  Byte[0] = 0xee (238) ÔÇö 43 unique commands:
+    x 16: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22
+    x 43: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 4c 00 3b c7 b6 2d 83
+    x 13: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 65 23 00 3b c7 b6 85 c7
+    x 28: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 08 23 00 3b c7 b6 eb 75
+    x  2: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da e9 23 00 3b c7 b6 d3 f3
+    x 21: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da eb 23 00 3b c7 b6 85 fb
+    x  3: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ef 23 00 3b c7 b6 29 eb
+    x  2: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ed 23 00 3b c7 b6 7f e3
+    x  3: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ec 23 00 3b c7 b6 54 e7
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 96 23 00 3b c7 b6 5b 0b
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 87 23 00 3b c7 b6 c0 4d
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 14 23 00 3b c7 b6 af 06
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 22 23 00 3b c7 b6 85 d9
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 27 00 3b c7 b6 72 65
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 5c 00 3b c7 b6 6d 37
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 5e 00 3b c7 b6 e5 21
+    x  2: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 5d 00 3b c7 b6 29 3c
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 e0 00 3b c7 b6 d9 1e
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 79 00 3b c7 b6 a8 71
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 c6 00 3b c7 b6 d0 45
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 c5 00 3b c7 b6 1c 58
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 85 00 3b c7 b6 3e 99
+    x  2: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 64 23 00 3b c7 b6 ae c3
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da af 23 00 3b c7 b6 f8 e9
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da de 23 00 3b c7 b6 d2 28
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 7f 23 00 3b c7 b6 3b ac
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da d9 23 00 3b c7 b6 03 34
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da a9 23 00 3b c7 b6 02 f1
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 2a 23 00 3b c7 b6 dd f8
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 3b 23 00 3b c7 b6 46 be
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ce 23 00 3b c7 b6 62 6a
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 1e 23 00 3b c7 b6 a1 2f
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 12 23 00 3b c7 b6 55 1e
+    x  6: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 23 00 3b c7 b6 63 93
+    x  4: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 18 00 3b c7 b6 5e 00
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 cb 00 3b c7 b6 a5 e2
+    x  1: ee 1b c8 af 9f 3c cd 41 fa 2a b4 ca 6b ff b6 2e a6 82 c9 f2 0e 7f cb 23
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da b6 23 00 3b c7 b6 3b 8e
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 1f 00 3b c7 b6 83 eb
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 73 00 3b c7 b6 00 3d
+    x  1: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 d3 3b c7 b6 d7 95
+
+
+======================================================================
+CHRONOLOGICAL ANALYSIS ÔÇö looking for command transitions
+======================================================================
+
+  Transition #1 @offset=270: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22  (prev was: none)
+  Transition #2 @offset=1514: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22)
+  Transition #3 @offset=2478: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #4 @offset=3839: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22)
+  Transition #5 @offset=5297: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #6 @offset=6577: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22)
+  Transition #7 @offset=7805: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 4c 00 3b c7 b6 2d 83  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #8 @offset=8228: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 4c 00 3b c7 b6 2d 83)
+  Transition #9 @offset=9563: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22)
+  Transition #10 @offset=10856: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #11 @offset=12544: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14)
+  Transition #12 @offset=13644: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #13 @offset=15350: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14)
+  Transition #14 @offset=16405: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 65 23 00 3b c7 b6 85 c7  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #15 @offset=16938: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 08 23 00 3b c7 b6 eb 75  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 65 23 00 3b c7 b6 85 c7)
+  Transition #16 @offset=20434: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 08 23 00 3b c7 b6 eb 75)
+  Transition #17 @offset=21406: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da e9 23 00 3b c7 b6 d3 f3  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #18 @offset=21777: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da eb 23 00 3b c7 b6 85 fb  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da e9 23 00 3b c7 b6 d3 f3)
+  Transition #19 @offset=25628: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da eb 23 00 3b c7 b6 85 fb)
+  Transition #20 @offset=38619: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ef 23 00 3b c7 b6 29 eb  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #21 @offset=39766: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ed 23 00 3b c7 b6 7f e3  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ef 23 00 3b c7 b6 29 eb)
+  Transition #22 @offset=40171: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ec 23 00 3b c7 b6 54 e7  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ed 23 00 3b c7 b6 7f e3)
+  Transition #23 @offset=41284: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ed 23 00 3b c7 b6 7f e3  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ec 23 00 3b c7 b6 54 e7)
+  Transition #24 @offset=41757: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 96 23 00 3b c7 b6 5b 0b  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ed 23 00 3b c7 b6 7f e3)
+  Transition #25 @offset=42060: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 87 23 00 3b c7 b6 c0 4d  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 96 23 00 3b c7 b6 5b 0b)
+  Transition #26 @offset=42363: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 87 23 00 3b c7 b6 c0 4d)
+  Transition #27 @offset=43941: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 14 23 00 3b c7 b6 af 06  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #28 @offset=44372: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 22 23 00 3b c7 b6 85 d9  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 14 23 00 3b c7 b6 af 06)
+  Transition #29 @offset=44675: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 22 23 00 3b c7 b6 85 d9)
+  Transition #30 @offset=45106: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 27 00 3b c7 b6 72 65  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #31 @offset=45409: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 5c 00 3b c7 b6 6d 37  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 27 00 3b c7 b6 72 65)
+  Transition #32 @offset=45908: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 5e 00 3b c7 b6 e5 21  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 5c 00 3b c7 b6 6d 37)
+  Transition #33 @offset=46211: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 5d 00 3b c7 b6 29 3c  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 5e 00 3b c7 b6 e5 21)
+  Transition #34 @offset=47133: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 5d 00 3b c7 b6 29 3c)
+  Transition #35 @offset=47572: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 e0 00 3b c7 b6 d9 1e  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #36 @offset=48105: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 79 00 3b c7 b6 a8 71  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 e0 00 3b c7 b6 d9 1e)
+  Transition #37 @offset=48536: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 c6 00 3b c7 b6 d0 45  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 79 00 3b c7 b6 a8 71)
+  Transition #38 @offset=49035: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 c5 00 3b c7 b6 1c 58  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 c6 00 3b c7 b6 d0 45)
+  Transition #39 @offset=49508: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 85 00 3b c7 b6 3e 99  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 c5 00 3b c7 b6 1c 58)
+  Transition #40 @offset=49811: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 85 00 3b c7 b6 3e 99)
+  Transition #41 @offset=50284: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 64 23 00 3b c7 b6 ae c3  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #42 @offset=51128: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da af 23 00 3b c7 b6 f8 e9  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 64 23 00 3b c7 b6 ae c3)
+  Transition #43 @offset=51533: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da de 23 00 3b c7 b6 d2 28  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da af 23 00 3b c7 b6 f8 e9)
+  Transition #44 @offset=51836: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 7f 23 00 3b c7 b6 3b ac  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da de 23 00 3b c7 b6 d2 28)
+  Transition #45 @offset=52139: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da d9 23 00 3b c7 b6 03 34  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 7f 23 00 3b c7 b6 3b ac)
+  Transition #46 @offset=52510: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da d9 23 00 3b c7 b6 03 34)
+  Transition #47 @offset=52983: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da a9 23 00 3b c7 b6 02 f1  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #48 @offset=53286: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 2a 23 00 3b c7 b6 dd f8  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da a9 23 00 3b c7 b6 02 f1)
+  Transition #49 @offset=53717: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 3b 23 00 3b c7 b6 46 be  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 2a 23 00 3b c7 b6 dd f8)
+  Transition #50 @offset=54088: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ce 23 00 3b c7 b6 62 6a  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 3b 23 00 3b c7 b6 46 be)
+  Transition #51 @offset=54527: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 1e 23 00 3b c7 b6 a1 2f  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da ce 23 00 3b c7 b6 62 6a)
+  Transition #52 @offset=55068: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 12 23 00 3b c7 b6 55 1e  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 1e 23 00 3b c7 b6 a1 2f)
+  Transition #53 @offset=55439: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da e9 23 00 3b c7 b6 d3 f3  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 12 23 00 3b c7 b6 55 1e)
+  Transition #54 @offset=55810: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da e9 23 00 3b c7 b6 d3 f3)
+  Transition #55 @offset=61866: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 23 00 3b c7 b6 63 93  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #56 @offset=62780: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 18 00 3b c7 b6 5e 00  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 23 00 3b c7 b6 63 93)
+  Transition #57 @offset=63472: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 23 00 3b c7 b6 63 93  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 18 00 3b c7 b6 5e 00)
+  Transition #58 @offset=64449: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 18 00 3b c7 b6 5e 00  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 23 00 3b c7 b6 63 93)
+  Transition #59 @offset=64872: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 18 00 3b c7 b6 5e 00)
+  Transition #60 @offset=101379: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 23 00 3b c7 b6 63 93  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #61 @offset=102416: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 18 00 3b c7 b6 5e 00  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 23 00 3b c7 b6 63 93)
+  Transition #62 @offset=103048: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 23 00 3b c7 b6 63 93  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 18 00 3b c7 b6 5e 00)
+  Transition #63 @offset=104784: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 18 00 3b c7 b6 5e 00  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 23 00 3b c7 b6 63 93)
+  Transition #64 @offset=105643: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 23 00 3b c7 b6 63 93  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 18 00 3b c7 b6 5e 00)
+  Transition #65 @offset=108547: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 cb 00 3b c7 b6 a5 e2  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 23 00 3b c7 b6 63 93)
+  Transition #66 @offset=109424: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 23 00 3b c7 b6 63 93  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 cb 00 3b c7 b6 a5 e2)
+  Transition #67 @offset=110952: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 30 23 00 3b c7 b6 63 93)
+  Transition #68 @offset=137155: ee 1b c8 af 9f 3c cd 41 fa 2a b4 ca 6b ff b6 2e a6 82 c9 f2 0e 7f cb 23  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #69 @offset=139988: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 41 fa 2a b4 ca 6b ff b6 2e a6 82 c9 f2 0e 7f cb 23)
+  Transition #70 @offset=142758: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da b6 23 00 3b c7 b6 3b 8e  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #71 @offset=143061: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 08 23 00 3b c7 b6 eb 75  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da b6 23 00 3b c7 b6 3b 8e)
+  Transition #72 @offset=153285: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 08 23 00 3b c7 b6 eb 75)
+  Transition #73 @offset=154555: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da eb 23 00 3b c7 b6 85 fb  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #74 @offset=161728: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da eb 23 00 3b c7 b6 85 fb)
+  Transition #75 @offset=163005: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 1f 00 3b c7 b6 83 eb  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #76 @offset=163444: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 1f 00 3b c7 b6 83 eb)
+  Transition #77 @offset=165915: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 cf 00 3b c7 b6 b4 14)
+  Transition #78 @offset=166717: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 73 00 3b c7 b6 00 3d  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #79 @offset=167208: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 73 00 3b c7 b6 00 3d)
+  Transition #80 @offset=169219: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 2c 00 3b c7 b6 9e 22)
+  Transition #81 @offset=170773: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 d3 3b c7 b6 d7 95  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48)
+  Transition #82 @offset=171917: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 00 3b c7 b6 62 48  (prev was: ee 1b c8 af 9f 3c cd 42 2c e3 74 ca 6b ff 42 da 07 23 d3 3b c7 b6 d7 95)
+
+Total transitions: 82
+
+
+======================================================================
+DEVICE RESPONSES (MFG 0xFFF0 / 0x11AA)
+======================================================================
+
+MFG 0xFFF0: 340 total, 2 unique payloads
+  x339: 75 42 d6 c9 c0 2d bf f3 00 01 00 00 00 00 00 00
+  x1: 75 41 d6 c9 c0 2d bf f3 00 00 00 00 00 00 00 00
+MFG 0x11AA: 0 total
+
+
+======================================================================
+JSON
+======================================================================
+
+[
+  {
+    "id": 1,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da072c003bc7b69e22",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      44,
+      0,
+      59,
+      199,
+      182,
+      158,
+      34
+    ],
+    "count": 16
+  },
+  {
+    "id": 2,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da0723003bc7b66248",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      35,
+      0,
+      59,
+      199,
+      182,
+      98,
+      72
+    ],
+    "count": 43
+  },
+  {
+    "id": 3,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da074c003bc7b62d83",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      76,
+      0,
+      59,
+      199,
+      182,
+      45,
+      131
+    ],
+    "count": 1
+  },
+  {
+    "id": 4,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da07cf003bc7b6b414",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      207,
+      0,
+      59,
+      199,
+      182,
+      180,
+      20
+    ],
+    "count": 13
+  },
+  {
+    "id": 5,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da6523003bc7b685c7",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      101,
+      35,
+      0,
+      59,
+      199,
+      182,
+      133,
+      199
+    ],
+    "count": 1
+  },
+  {
+    "id": 6,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da0823003bc7b6eb75",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      8,
+      35,
+      0,
+      59,
+      199,
+      182,
+      235,
+      117
+    ],
+    "count": 28
+  },
+  {
+    "id": 7,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42dae923003bc7b6d3f3",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      233,
+      35,
+      0,
+      59,
+      199,
+      182,
+      211,
+      243
+    ],
+    "count": 2
+  },
+  {
+    "id": 8,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42daeb23003bc7b685fb",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      235,
+      35,
+      0,
+      59,
+      199,
+      182,
+      133,
+      251
+    ],
+    "count": 21
+  },
+  {
+    "id": 9,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42daef23003bc7b629eb",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      239,
+      35,
+      0,
+      59,
+      199,
+      182,
+      41,
+      235
+    ],
+    "count": 3
+  },
+  {
+    "id": 10,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42daed23003bc7b67fe3",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      237,
+      35,
+      0,
+      59,
+      199,
+      182,
+      127,
+      227
+    ],
+    "count": 2
+  },
+  {
+    "id": 11,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42daec23003bc7b654e7",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      236,
+      35,
+      0,
+      59,
+      199,
+      182,
+      84,
+      231
+    ],
+    "count": 3
+  },
+  {
+    "id": 12,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da9623003bc7b65b0b",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      150,
+      35,
+      0,
+      59,
+      199,
+      182,
+      91,
+      11
+    ],
+    "count": 1
+  },
+  {
+    "id": 13,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da8723003bc7b6c04d",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      135,
+      35,
+      0,
+      59,
+      199,
+      182,
+      192,
+      77
+    ],
+    "count": 1
+  },
+  {
+    "id": 14,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da1423003bc7b6af06",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      20,
+      35,
+      0,
+      59,
+      199,
+      182,
+      175,
+      6
+    ],
+    "count": 1
+  },
+  {
+    "id": 15,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da2223003bc7b685d9",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      34,
+      35,
+      0,
+      59,
+      199,
+      182,
+      133,
+      217
+    ],
+    "count": 1
+  },
+  {
+    "id": 16,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da0727003bc7b67265",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      39,
+      0,
+      59,
+      199,
+      182,
+      114,
+      101
+    ],
+    "count": 1
+  },
+  {
+    "id": 17,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da075c003bc7b66d37",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      92,
+      0,
+      59,
+      199,
+      182,
+      109,
+      55
+    ],
+    "count": 1
+  },
+  {
+    "id": 18,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da075e003bc7b6e521",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      94,
+      0,
+      59,
+      199,
+      182,
+      229,
+      33
+    ],
+    "count": 1
+  },
+  {
+    "id": 19,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da075d003bc7b6293c",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      93,
+      0,
+      59,
+      199,
+      182,
+      41,
+      60
+    ],
+    "count": 2
+  },
+  {
+    "id": 20,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da07e0003bc7b6d91e",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      224,
+      0,
+      59,
+      199,
+      182,
+      217,
+      30
+    ],
+    "count": 1
+  },
+  {
+    "id": 21,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da0779003bc7b6a871",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      121,
+      0,
+      59,
+      199,
+      182,
+      168,
+      113
+    ],
+    "count": 1
+  },
+  {
+    "id": 22,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da07c6003bc7b6d045",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      198,
+      0,
+      59,
+      199,
+      182,
+      208,
+      69
+    ],
+    "count": 1
+  },
+  {
+    "id": 23,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da07c5003bc7b61c58",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      197,
+      0,
+      59,
+      199,
+      182,
+      28,
+      88
+    ],
+    "count": 1
+  },
+  {
+    "id": 24,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da0785003bc7b63e99",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      133,
+      0,
+      59,
+      199,
+      182,
+      62,
+      153
+    ],
+    "count": 1
+  },
+  {
+    "id": 25,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da6423003bc7b6aec3",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      100,
+      35,
+      0,
+      59,
+      199,
+      182,
+      174,
+      195
+    ],
+    "count": 2
+  },
+  {
+    "id": 26,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42daaf23003bc7b6f8e9",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      175,
+      35,
+      0,
+      59,
+      199,
+      182,
+      248,
+      233
+    ],
+    "count": 1
+  },
+  {
+    "id": 27,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42dade23003bc7b6d228",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      222,
+      35,
+      0,
+      59,
+      199,
+      182,
+      210,
+      40
+    ],
+    "count": 1
+  },
+  {
+    "id": 28,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da7f23003bc7b63bac",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      127,
+      35,
+      0,
+      59,
+      199,
+      182,
+      59,
+      172
+    ],
+    "count": 1
+  },
+  {
+    "id": 29,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42dad923003bc7b60334",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      217,
+      35,
+      0,
+      59,
+      199,
+      182,
+      3,
+      52
+    ],
+    "count": 1
+  },
+  {
+    "id": 30,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42daa923003bc7b602f1",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      169,
+      35,
+      0,
+      59,
+      199,
+      182,
+      2,
+      241
+    ],
+    "count": 1
+  },
+  {
+    "id": 31,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da2a23003bc7b6ddf8",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      42,
+      35,
+      0,
+      59,
+      199,
+      182,
+      221,
+      248
+    ],
+    "count": 1
+  },
+  {
+    "id": 32,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da3b23003bc7b646be",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      59,
+      35,
+      0,
+      59,
+      199,
+      182,
+      70,
+      190
+    ],
+    "count": 1
+  },
+  {
+    "id": 33,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42dace23003bc7b6626a",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      206,
+      35,
+      0,
+      59,
+      199,
+      182,
+      98,
+      106
+    ],
+    "count": 1
+  },
+  {
+    "id": 34,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da1e23003bc7b6a12f",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      30,
+      35,
+      0,
+      59,
+      199,
+      182,
+      161,
+      47
+    ],
+    "count": 1
+  },
+  {
+    "id": 35,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da1223003bc7b6551e",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      18,
+      35,
+      0,
+      59,
+      199,
+      182,
+      85,
+      30
+    ],
+    "count": 1
+  },
+  {
+    "id": 36,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da3023003bc7b66393",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      48,
+      35,
+      0,
+      59,
+      199,
+      182,
+      99,
+      147
+    ],
+    "count": 6
+  },
+  {
+    "id": 37,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da3018003bc7b65e00",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      48,
+      24,
+      0,
+      59,
+      199,
+      182,
+      94,
+      0
+    ],
+    "count": 4
+  },
+  {
+    "id": 38,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da30cb003bc7b6a5e2",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      48,
+      203,
+      0,
+      59,
+      199,
+      182,
+      165,
+      226
+    ],
+    "count": 1
+  },
+  {
+    "id": 39,
+    "hex": "ee1bc8af9f3ccd41fa2ab4ca6bffb62ea682c9f20e7fcb23",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      65,
+      250,
+      42,
+      180,
+      202,
+      107,
+      255,
+      182,
+      46,
+      166,
+      130,
+      201,
+      242,
+      14,
+      127,
+      203,
+      35
+    ],
+    "count": 1
+  },
+  {
+    "id": 40,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42dab623003bc7b63b8e",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      182,
+      35,
+      0,
+      59,
+      199,
+      182,
+      59,
+      142
+    ],
+    "count": 1
+  },
+  {
+    "id": 41,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da071f003bc7b683eb",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      31,
+      0,
+      59,
+      199,
+      182,
+      131,
+      235
+    ],
+    "count": 1
+  },
+  {
+    "id": 42,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da0773003bc7b6003d",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      115,
+      0,
+      59,
+      199,
+      182,
+      0,
+      61
+    ],
+    "count": 1
+  },
+  {
+    "id": 43,
+    "hex": "ee1bc8af9f3ccd422ce374ca6bff42da0723d33bc7b6d795",
+    "bytes": [
+      238,
+      27,
+      200,
+      175,
+      159,
+      60,
+      205,
+      66,
+      44,
+      227,
+      116,
+      202,
+      107,
+      255,
+      66,
+      218,
+      7,
+      35,
+      211,
+      59,
+      199,
+      182,
+      215,
+      149
+    ],
+    "count": 1
+  }
+]
