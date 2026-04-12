@@ -18,10 +18,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import SplashScreen from './src/screens/SplashScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import ControlScreen from './src/screens/ControlScreen';
-import ScannerScreen from './src/screens/ScannerScreen';
-import DebugScreen from './src/screens/DebugScreen';
+import BlocksScreen from './src/screens/BlocksScreen';
+import DrawScreen from './src/screens/DrawScreen';
 import { startGlobalScan } from './src/services/BleScanner';
 
 const Tab = createBottomTabNavigator();
@@ -64,22 +65,22 @@ const MainTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Scanner"
-        component={ScannerScreen}
+        name="Blocks"
+        component={BlocksScreen}
         options={{
-          tabBarLabel: 'Skaner',
+          tabBarLabel: 'Klocki',
           tabBarIcon: ({ color, size }) => (
-            <TabIcon emoji="📡" />
+            <TabIcon emoji="🧩" />
           ),
         }}
       />
       <Tab.Screen
-        name="Debug"
-        component={DebugScreen}
+        name="Draw"
+        component={DrawScreen}
         options={{
-          tabBarLabel: 'Debugger',
+          tabBarLabel: 'Rysik',
           tabBarIcon: ({ color, size }) => (
-            <TabIcon emoji="🔧" />
+            <TabIcon emoji="🖌️" />
           ),
         }}
       />
@@ -123,9 +124,12 @@ const App = () => {
       <StatusBar barStyle="light-content" backgroundColor="#0a0a14" translucent={false} />
       <NavigationContainer>
         <Stack.Navigator 
-          initialRouteName="Welcome"
+          initialRouteName="Splash"
           screenOptions={{ headerShown: false }}
         >
+          {/* Ekran ładowania */}
+          <Stack.Screen name="Splash" component={SplashScreen} />
+
           {/* Ekran wyboru Garażu */}
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
           

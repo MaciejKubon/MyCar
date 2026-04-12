@@ -22,7 +22,8 @@
     "react-native-ble-advertiser": "^0.0.17",
     "react-native-ble-plx": "^3.5.1",
     "react-native-safe-area-context": "^5.7.0",
-    "react-native-screens": "^4.24.0"
+    "react-native-screens": "^4.24.0",
+    "react-native-svg": "15.12.1"
   },
   "devDependencies": {
     "@types/react": "~19.1.0",
