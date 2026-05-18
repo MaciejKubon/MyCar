@@ -11,34 +11,41 @@ The application completely rejects the standard, closed ecosystem of the officia
 The project has undergone massive evolution and currently features multi-layered navigation guiding the player from the "Garage" to fully autonomous control systems.
 
 ### 🎮 Manual Control (D-Pad)
-An improved, highly sensitive interface based on discrete presses with built-in BLE *rate-limiter* bypass. It allows driving the car using classic D-Pad "arrows" with lightning-fast hardware reaction to releasing the virtual brake key.
+
+An improved, highly sensitive interface based on discrete presses with built-in BLE _rate-limiter_ bypass. It allows driving the car using classic D-Pad "arrows" with lightning-fast hardware reaction to releasing the virtual brake key.
 
 ### 🧩 Autopilot (Block Programming)
-An educational and useful instruction queuing system similar to *Scratch*.
-* Drag blocks onto the command list and set the injection times of specific packets with millisecond precision (e.g., Drive forward for 2 seconds, turn right for 0.5 sec).
-* The interpreter executes the sequence synchronously, creating autonomous vehicle maneuvers.
+
+An educational and useful instruction queuing system similar to _Scratch_.
+
+- Drag blocks onto the command list and set the injection times of specific packets with millisecond precision (e.g., Drive forward for 2 seconds, turn right for 0.5 sec).
+- The interpreter executes the sequence synchronously, creating autonomous vehicle maneuvers.
 
 ### 🖌️ Canvas Stylus (Draw Screen / Dead Reckoning)
+
 An innovative, experimental system that reads vectors drawn by a finger on the smartphone (`react-native-svg`), mathematically converting curvatures and slants into activation times for the lateral steering motors and main drive. The entire complex pattern from the screen is reinterpreted into actual driving around the room.
 
 ### 🌍 Internationalization (i18n)
+
 The app is fully translated into **English and Polish** (using `react-i18next`). The language switches seamlessly and automatically adapts to the phone's native settings, making it ready for the global market.
 
 ### 🛠️ Advanced Developer Tools (DEV Mode Only)
+
 Powerful under-the-hood analytical tools have been built in:
-* **BLE Scanner:** Detects nearby CaDA devices and logs raw data packets (Raw Hex).
-* **Debug Screen:** A test board for sending manually crafted hexadecimal strings and saving "working patterns".
-* These screens are **automatically hidden** in production to avoid cluttering the end-user interface. They are only visible when running the Metro bundler (`__DEV__ === true`).
+
+- **BLE Scanner:** Detects nearby CaDA devices and logs raw data packets (Raw Hex).
+- **Debug Screen:** A test board for sending manually crafted hexadecimal strings and saving "working patterns".
+- These screens are **automatically hidden** in production to avoid cluttering the end-user interface. They are only visible when running the Metro bundler (`__DEV__ === true`).
 
 ---
 
 ## 🛠️ Architecture and Tech Stack
 
-* **React Native & Expo SDK 54+**
-* **Navigation**: `@react-navigation/native-stack` and `bottom-tabs`
-* **BLE Transmission (Broadcasting)**: Modified `react-native-ble-advertiser` library. It forces 24-byte packets as `Manufacturer Specific Data` without broadcasting a UUID.
-* **BLE Transmission (Receiving)**: `react-native-ble-plx` (used as a `Scanner` component to identify toys over the air and catch MAC addresses).
-* **UI/UX**: Custom Dark Mode styled with a glassmorphism interface (neon purples and muted greens). Custom native hardware-rendered boot animation in `SplashScreen.tsx`.
+- **React Native & Expo SDK 54+**
+- **Navigation**: `@react-navigation/native-stack` and `bottom-tabs`
+- **BLE Transmission (Broadcasting)**: Modified `react-native-ble-advertiser` library. It forces 24-byte packets as `Manufacturer Specific Data` without broadcasting a UUID.
+- **BLE Transmission (Receiving)**: `react-native-ble-plx` (used as a `Scanner` component to identify toys over the air and catch MAC addresses).
+- **UI/UX**: Custom Dark Mode styled with a glassmorphism interface (neon purples and muted greens). Custom native hardware-rendered boot animation in `SplashScreen.tsx`.
 
 ---
 
@@ -59,7 +66,7 @@ The application uses native libraries (C++/Java) to generate live SVG vector pat
    ```bash
    npm run android
    ```
-   *(Note: Due to strict Android 12+ permissions, you must accept all Location and "Nearby Devices" prompts on the first launch).*
+   _(Note: Due to strict Android 12+ permissions, you must accept all Location and "Nearby Devices" prompts on the first launch)._
 
 > **Tip for Wireless Debugging Users (Android 11+):**
 > The mDNS service often reports the phone with a space in its name (e.g., `adb-XXX (2)._adb-tls...`). Expo tools have a built-in bug and will throw a `device not found` error if they encounter this space.
@@ -76,4 +83,4 @@ The application uses native libraries (C++/Java) to generate live SVG vector pat
 
 ---
 
-*Built with a passion for engineering toys and React Native. Have a great drive!* 🛣️
+_Built with a passion for engineering toys and React Native. Have a great drive!_ 🛣️
