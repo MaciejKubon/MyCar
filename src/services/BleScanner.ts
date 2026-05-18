@@ -1,23 +1,7 @@
-/**
- * Warstwa BLE Scanner — skanowanie urządzeń CaDA.
- * 
- * Urządzenia CaDA nadają pakiety reklamowe:
- * - MFG ID 0x11AA (4522) — urządzenia typu "HS" (nazwa zawiera "HSZ_HS")
- * - MFG ID 0xFFF0 (65520) — urządzenia typu "PC"
- * 
- * Parametry skanowania (z oryginału):
- *   Mode: Low Latency
- *   Auto-restart: co 2000ms
- *   Filtry: brak (skanuj wszystko)
- */
-
 import { useState, useEffect } from 'react';
 import { BleManager, Device, State } from 'react-native-ble-plx';
 import { BLE_CONSTANTS } from '../utils/commands';
 
-/**
- * Hook do odczytu statusu wirtualnego połączenia z CaDA.
- */
 export function useCaDAConnection(): boolean {
   const [isConnected, setIsConnected] = useState(false);
   useEffect(() => {
@@ -27,17 +11,16 @@ export function useCaDAConnection(): boolean {
   return isConnected;
 }
 
-// Singleton BleManager
 let manager: BleManager | null = null;
 
 export interface ScannedDevice {
-  id: string;             // MAc adres (Android) lub UUID (iOS)
-  name: string | null;    // null jeśli nie rozgłasza
-  rssi: number | null;    // siła domyślna
-  manufacturerData: string | null; // Base64 (surowe powitania)
-  rawHex: string | null;  // Zdekodowany heks
-  isCaDA: boolean;        // Wynik filtru algorytmu
-  type: 'HS' | 'PC' | 'unknown'; // Typ autka CaDA
+  id: string;
+  name: string | null;
+  rssi: number | null;
+  manufacturerData: string | null;
+  rawHex: string | null;
+  isCaDA: boolean;
+  type: 'HS' | 'PC' | 'unknown';
   timestamp: number;
 }
 
@@ -46,13 +29,9 @@ type ScanCallback = (device: ScannedDevice) => void;
 let scanCallbacks: ScanCallback[] = [];
 let isScanning = false;
 
-// Ostatnio widziane urządzenie CaDA
 let lastCaDAScrubTime = 0;
 let connectionListeners: ((isConnected: boolean) => void)[] = [];
 
-/**
- * Podłącz nasłuch na wyniki skanera.
- */
 export function addScanListener(callback: ScanCallback): () => void {
   scanCallbacks.push(callback);
   return () => {
@@ -60,9 +39,6 @@ export function addScanListener(callback: ScanCallback): () => void {
   };
 }
 
-/**
- * Podłącz nasłuch na wirtualny status połączenia.
- */
 export function addConnectionListener(callback: (isConnected: boolean) => void): () => void {
   connectionListeners.push(callback);
   return () => {
@@ -70,17 +46,11 @@ export function addConnectionListener(callback: (isConnected: boolean) => void):
   };
 }
 
-/**
- * Background loop do sprawdzania timeoutu połączenia (3 sekundy)
- */
 setInterval(() => {
-  const isConnected = Date.now() - lastCaDAScrubTime < 3000;
+  const isConnected = Date.now() - lastCaDAScrubTime < 8000;
   connectionListeners.forEach(cb => cb(isConnected));
 }, 1000);
 
-/**
- * Inicjalizacja managera BLE.
- */
 export function initScanner(): BleManager {
   if (!manager) {
     manager = new BleManager();
@@ -88,17 +58,11 @@ export function initScanner(): BleManager {
   return manager;
 }
 
-/**
- * Sprawdza stan Bluetooth.
- */
 export async function checkBluetoothState(): Promise<State> {
   const mgr = initScanner();
   return mgr.state();
 }
 
-/**
- * Nasłuchuje na zmiany stanu Bluetooth.
- */
 export function onStateChange(callback: (state: State) => void): { remove: () => void } {
   const mgr = initScanner();
   const subscription = mgr.onStateChange((state) => {
@@ -107,24 +71,18 @@ export function onStateChange(callback: (state: State) => void): { remove: () =>
   return subscription;
 }
 
-/**
- * Wyłącza ręczne wywołania startScan przez pojedyncze ekrany, promuje skaner globalny
- */
 export function startGlobalScan(): void {
   const mgr = initScanner();
-  if (isScanning) return; // Już skanuje
+  if (isScanning) return;
   isScanning = true;
   doScan(mgr);
 }
 
-/**
- * Wewnętrzna funkcja skanowania.
- */
 function doScan(mgr: BleManager): void {
   mgr.startDeviceScan(
-    null,  // Brak filtrów UUID (skanuj wszystko — jak w oryginale)
+    null,
     {
-      allowDuplicates: true,  // Pozwalaj na duplikaty (chcemy widzieć aktualizacje)
+      allowDuplicates: true,
     },
     (error, device) => {
       if (error) {
@@ -143,7 +101,6 @@ function doScan(mgr: BleManager): void {
   );
 }
 
-// Szybki dekoder base64 dla React Native (ponieważ atob jest niedostępne)
 const b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 const b64Lookup = new Uint8Array(256);
 for (let i = 0; i < b64chars.length; i++) b64Lookup[b64chars.charCodeAt(i)] = i;
@@ -166,22 +123,16 @@ function decodeBase64ToBytes(base64: string): number[] {
   return bytes;
 }
 
-/**
- * Przetwarza znalezione urządzenie — identyfikuje typ CaDA.
- */
 function processDevice(device: Device): ScannedDevice {
   const name = device.name || device.localName || null;
   let isCaDA = false;
   let type: 'HS' | 'PC' | 'unknown' = 'unknown';
 
-  // Sprawdź czy nazwa zawiera filtry z różnych zabawek CaDA
   if (name && (name.includes(BLE_CONSTANTS.DEVICE_NAME_FILTER) || name.includes('CaDA'))) {
     isCaDA = true;
     type = 'HS';
   }
 
-  // Sprawdź Manufacturer Data
-  // react-native-ble-plx zwraca manufacturerData jako base64
   let rawHex: string | null = null;
   if (device.manufacturerData) {
     try {
@@ -190,7 +141,6 @@ function processDevice(device: Device): ScannedDevice {
         rawHex = bytes.map(b => (b & 0xFF).toString(16).padStart(2, '0')).join(' ');
       }
       if (bytes.length >= 2) {
-        // Pierwsze 2 bajty to Company ID (little-endian)
         const companyId = bytes[0] | (bytes[1] << 8);
         
         if (companyId === BLE_CONSTANTS.MANUFACTURER_ID_RECV_HS || companyId === BLE_CONSTANTS.MANUFACTURER_ID) {
@@ -202,7 +152,6 @@ function processDevice(device: Device): ScannedDevice {
         }
       }
     } catch (e) {
-      // Ignoruj błędy parsowania
     }
   }
 
@@ -217,38 +166,24 @@ function processDevice(device: Device): ScannedDevice {
     timestamp: Date.now(),
   };
 
-  // Logi wyłączone ze względu na wysoki spam w konsoli
-  // const serviceUUIDs = device.serviceUUIDs ? device.serviceUUIDs.join(',') : 'none';
-  // console.log(`[🚀 BLE] Name: ${name || 'N/A'} | MAC: ${device.id} | RSSI: ${device.rssi} | Hex: ${rawHex || 'NONE'} | Services: ${serviceUUIDs} | CaDA: ${isCaDA}`);
-
   return result;
 }
 
-/**
- * Zatrzymuje skanowanie.
- */
 export function stopScan(): void {
   if (manager) {
     try {
       manager.stopDeviceScan();
     } catch (e) {
-      // Ignoruj
     }
   }
   
   isScanning = false;
 }
 
-/**
- * Zwraca stan skanera.
- */
 export function getScannerState() {
   return { isScanning };
 }
 
-/**
- * Niszczy managera (cleanup).
- */
 export function destroyScanner(): void {
   stopScan();
   if (manager) {

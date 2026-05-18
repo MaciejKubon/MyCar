@@ -1,11 +1,3 @@
-/**
- * MyCar — Aplikacja do sterowania samochodem CaDA przez BLE Advertising.
- * 
- * Komunikacja: BLE Advertising (bezpołączeniowo)
- * Manufacturer ID: 0xC200 (49664)
- * Protokół: eksperymentalny (odkrywanie przez debugger)
- */
-
 import React, { useEffect } from 'react';
 import {
   PermissionsAndroid,
@@ -17,24 +9,28 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
+import './src/i18n';
 import SplashScreen from './src/screens/SplashScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import ControlScreen from './src/screens/ControlScreen';
 import BlocksScreen from './src/screens/BlocksScreen';
 import DrawScreen from './src/screens/DrawScreen';
+import DebugScreen from './src/screens/DebugScreen';
+import ScannerScreen from './src/screens/ScannerScreen';
 import { startGlobalScan } from './src/services/BleScanner';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-// Prosty komponent ikony tab-a (emoji zamiast vector icons)
 const TabIcon: React.FC<{ emoji: string }> = ({ emoji }) => (
   <Text style={{ fontSize: 22 }}>{emoji}</Text>
 );
 
-// Zawartość głównego panelu nawigacyjnego z zakładkami
 const MainTabs = () => {
+  const { t } = useTranslation();
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -58,7 +54,7 @@ const MainTabs = () => {
         name="Control"
         component={ControlScreen}
         options={{
-          tabBarLabel: 'Sterowanie',
+          tabBarLabel: t('tabs.control'),
           tabBarIcon: ({ color, size }) => (
             <TabIcon emoji="🎮" />
           ),
@@ -68,7 +64,7 @@ const MainTabs = () => {
         name="Blocks"
         component={BlocksScreen}
         options={{
-          tabBarLabel: 'Klocki',
+          tabBarLabel: t('tabs.blocks'),
           tabBarIcon: ({ color, size }) => (
             <TabIcon emoji="🧩" />
           ),
@@ -78,12 +74,36 @@ const MainTabs = () => {
         name="Draw"
         component={DrawScreen}
         options={{
-          tabBarLabel: 'Rysik',
+          tabBarLabel: t('tabs.draw'),
           tabBarIcon: ({ color, size }) => (
             <TabIcon emoji="🖌️" />
           ),
         }}
       />
+      {__DEV__ && (
+        <Tab.Screen
+          name="Debug"
+          component={DebugScreen}
+          options={{
+            tabBarLabel: t('tabs.debug'),
+            tabBarIcon: ({ color, size }) => (
+              <TabIcon emoji="⚙️" />
+            ),
+          }}
+        />
+      )}
+      {__DEV__ && (
+        <Tab.Screen
+          name="Scanner"
+          component={ScannerScreen}
+          options={{
+            tabBarLabel: t('tabs.scanner'),
+            tabBarIcon: ({ color, size }) => (
+              <TabIcon emoji="📡" />
+            ),
+          }}
+        />
+      )}
     </Tab.Navigator>
   );
 };
@@ -114,7 +134,6 @@ const App = () => {
       } catch (error) {
         console.error('[MyCar] Permission error:', error);
       }
-      // Po uprawnieniach startujemy skanowanie w tle, bez względu na zakładkę
       startGlobalScan();
     }
   };
@@ -127,13 +146,8 @@ const App = () => {
           initialRouteName="Splash"
           screenOptions={{ headerShown: false }}
         >
-          {/* Ekran ładowania */}
           <Stack.Screen name="Splash" component={SplashScreen} />
-
-          {/* Ekran wyboru Garażu */}
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
-          
-          {/* Panel właściwy samochodu z dolnymi zakładkami */}
           <Stack.Screen name="MainTabs" component={MainTabs} />
         </Stack.Navigator>
       </NavigationContainer>

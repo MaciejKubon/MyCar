@@ -10,8 +10,9 @@ import {
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { broadcastCommand, sendStop } from '../services/BleAdvertiser';
 import { CADA_PC_COMMANDS } from '../utils/commands';
+import { useTranslation } from 'react-i18next';
 
-type InstructionType = 'FWD' | 'REV' | 'LEFT' | 'RIGHT';
+type InstructionType = 'FWD' | 'REV' | 'LEFT' | 'RIGHT' | 'FWD_LEFT' | 'FWD_RIGHT' | 'REV_LEFT' | 'REV_RIGHT';
 
 interface ProgramBlock {
   id: string;
@@ -24,22 +25,21 @@ const ICONS: Record<InstructionType, string> = {
   REV: '▼',
   LEFT: '◀',
   RIGHT: '▶',
+  FWD_LEFT: '↖',
+  FWD_RIGHT: '↗',
+  REV_LEFT: '↙',
+  REV_RIGHT: '↘',
 };
 
-const LABELS: Record<InstructionType, string> = {
-  FWD: 'DO PRZODU',
-  REV: 'DO TYŁU',
-  LEFT: 'W LEWO',
-  RIGHT: 'W PRAWO',
-};
+
 
 export default function BlocksScreen() {
+  const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const [blocks, setBlocks] = useState<ProgramBlock[]>([]);
   const [isExecuting, setIsExecuting] = useState(false);
   const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
   
-  // Ref dla wymuszonego przerwania w trakcie
   const isExecutingRef = useRef(false);
 
   const addBlock = (type: InstructionType) => {
@@ -49,7 +49,7 @@ export default function BlocksScreen() {
       {
         id: Math.random().toString(36).substring(7),
         type,
-        durationMs: 1000, // Domyślnie 1 sekunda
+        durationMs: 1000,
       }
     ]);
   };
@@ -87,29 +87,32 @@ export default function BlocksScreen() {
     isExecutingRef.current = true;
 
     for (let i = 0; i < blocks.length; i++) {
-        if (!isExecutingRef.current) break; // Przerwano przez usera
+        if (!isExecutingRef.current) break;
 
         const block = blocks[i];
         setActiveBlockId(block.id);
 
-        let cmd: number[] = [];
+        let cmd: number[] | null = null;
         switch (block.type) {
-            case 'FWD': cmd = CADA_PC_COMMANDS.FWD; break;
-            case 'REV': cmd = CADA_PC_COMMANDS.REV; break;
-            case 'LEFT': cmd = CADA_PC_COMMANDS.LEFT; break;
-            case 'RIGHT': cmd = CADA_PC_COMMANDS.RIGHT; break;
+            case 'FWD':       cmd = CADA_PC_COMMANDS.FWD; break;
+            case 'REV':       cmd = CADA_PC_COMMANDS.REV; break;
+            case 'LEFT':      cmd = CADA_PC_COMMANDS.LEFT; break;
+            case 'RIGHT':     cmd = CADA_PC_COMMANDS.RIGHT; break;
+            case 'FWD_LEFT':  cmd = CADA_PC_COMMANDS.FWD_LEFT; break;
+            case 'FWD_RIGHT': cmd = CADA_PC_COMMANDS.FWD_RIGHT; break;
+            case 'REV_LEFT':  cmd = CADA_PC_COMMANDS.REV_LEFT; break;
+            case 'REV_RIGHT': cmd = CADA_PC_COMMANDS.REV_RIGHT; break;
         }
 
-        // Pętla spamująca komendę D-Pad przez wymagany czas (100ms interval)
-        const ticks = Math.floor(block.durationMs / 100);
+        const tickTime = 100;
+        const ticks = Math.floor(block.durationMs / tickTime);
         for(let t = 0; t < ticks; t++) {
              if (!isExecutingRef.current) break;
-             await broadcastCommand(cmd, true);
-             await sleep(100);
+             if (cmd) await broadcastCommand(cmd, true);
+             await sleep(tickTime);
         }
     }
 
-    // Koniec sekwencji lub przerwanie - ostateczny stop
     await sendStop();
     setActiveBlockId(null);
     setIsExecuting(false);
@@ -122,18 +125,31 @@ export default function BlocksScreen() {
     await sendStop();
   };
 
+  const getLabel = (type: InstructionType): string => {
+    const keys = {
+      FWD: 'blocks.fwd',
+      REV: 'blocks.rev',
+      LEFT: 'blocks.left',
+      RIGHT: 'blocks.right',
+      FWD_LEFT: 'blocks.fwdLeft',
+      FWD_RIGHT: 'blocks.fwdRight',
+      REV_LEFT: 'blocks.revLeft',
+      REV_RIGHT: 'blocks.revRight',
+    } as const;
+    return t(keys[type] as any) as string;
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
       <View style={styles.header}>
-        <Text style={styles.title}>AUTOPILOT</Text>
-        <Text style={styles.subtitle}>Programowanie z Klocków</Text>
+        <Text style={styles.title}>{t('blocks.title')}</Text>
+        <Text style={styles.subtitle}>{t('blocks.subtitle')}</Text>
       </View>
 
-      {/* Lista programowania */}
       <View style={styles.programArea}>
         <ScrollView contentContainerStyle={styles.scrollContent}>
           {blocks.length === 0 ? (
-             <Text style={styles.emptyText}>Dodaj komendy z dolnej palety, aby zaprogramować trasę.</Text>
+             <Text style={styles.emptyText}>{t('blocks.emptyText')}</Text>
           ) : (
             blocks.map((block, index) => {
               const isActive = activeBlockId === block.id;
@@ -143,7 +159,7 @@ export default function BlocksScreen() {
                      <Text style={[styles.blockIcon, isActive && styles.blockIconActive]}>{ICONS[block.type]}</Text>
                   </View>
                   <View style={styles.blockInfo}>
-                     <Text style={[styles.blockName, isActive && styles.blockIconActive]}>{LABELS[block.type]}</Text>
+                     <Text style={[styles.blockName, isActive && styles.blockIconActive]}>{getLabel(block.type)}</Text>
                      <View style={styles.durationControl}>
                         <TouchableOpacity style={styles.timeBtn} onPress={() => decreaseDuration(block.id)}>
                             <Text style={styles.timeBtnText}>-</Text>
@@ -164,36 +180,51 @@ export default function BlocksScreen() {
         </ScrollView>
       </View>
 
-      {/* Kontrolki i Paleta Klocków */}
       <View style={[styles.controlsArea, { paddingBottom: insets.bottom + 10 }]}>
         <View style={styles.mainActions}>
            <TouchableOpacity 
              style={[styles.playBtn, isExecuting && styles.stopBtn]} 
              onPress={isExecuting ? stopSequence : runSequence}
            >
-             <Text style={styles.playBtnText}>{isExecuting ? '⏹ ZATRZYMAJ' : '▶ URUCHOM'}</Text>
+             <Text style={styles.playBtnText}>{isExecuting ? t('blocks.stop') : t('blocks.run')}</Text>
            </TouchableOpacity>
            
            {!isExecuting && (
              <TouchableOpacity style={styles.clearBtn} onPress={clearBlocks}>
-               <Text style={styles.clearBtnText}>Wyczyść</Text>
+               <Text style={styles.clearBtnText}>{t('blocks.clear')}</Text>
              </TouchableOpacity>
            )}
         </View>
 
-        <Text style={styles.paletteLabel}>DOSTĘPNE BLOKI</Text>
+        <Text style={styles.paletteLabel}>{t('blocks.directions')}</Text>
         <View style={styles.palette}>
+           <TouchableOpacity style={styles.paletteBtn} onPress={() => addBlock('FWD_LEFT')}>
+              <Text style={styles.paletteIcon}>↖</Text>
+           </TouchableOpacity>
            <TouchableOpacity style={styles.paletteBtn} onPress={() => addBlock('FWD')}>
               <Text style={styles.paletteIcon}>▲</Text>
            </TouchableOpacity>
+           <TouchableOpacity style={styles.paletteBtn} onPress={() => addBlock('FWD_RIGHT')}>
+              <Text style={styles.paletteIcon}>↗</Text>
+           </TouchableOpacity>
+        </View>
+        <View style={[styles.palette, { marginTop: 8 }]}>
            <TouchableOpacity style={styles.paletteBtn} onPress={() => addBlock('LEFT')}>
               <Text style={styles.paletteIcon}>◀</Text>
+           </TouchableOpacity>
+           <TouchableOpacity style={styles.paletteBtn} onPress={() => addBlock('REV')}>
+              <Text style={styles.paletteIcon}>▼</Text>
            </TouchableOpacity>
            <TouchableOpacity style={styles.paletteBtn} onPress={() => addBlock('RIGHT')}>
               <Text style={styles.paletteIcon}>▶</Text>
            </TouchableOpacity>
-           <TouchableOpacity style={styles.paletteBtn} onPress={() => addBlock('REV')}>
-              <Text style={styles.paletteIcon}>▼</Text>
+        </View>
+        <View style={[styles.palette, { marginTop: 8 }]}>
+           <TouchableOpacity style={styles.paletteBtn} onPress={() => addBlock('REV_LEFT')}>
+              <Text style={styles.paletteIcon}>↙</Text>
+           </TouchableOpacity>
+           <TouchableOpacity style={styles.paletteBtn} onPress={() => addBlock('REV_RIGHT')}>
+              <Text style={styles.paletteIcon}>↘</Text>
            </TouchableOpacity>
         </View>
       </View>
@@ -230,7 +261,7 @@ const styles = StyleSheet.create({
   clearBtn: { backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: 12, paddingHorizontal: 20, justifyContent: 'center', alignItems: 'center' },
   clearBtnText: { color: '#aaa', fontWeight: '600' },
   paletteLabel: { color: '#555', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 8, textAlign: 'center' },
-  palette: { flexDirection: 'row', justifyContent: 'space-between' },
-  paletteBtn: { width: '22%', aspectRatio: 1, backgroundColor: 'rgba(40,40,60,0.8)', borderRadius: 16, justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: 'rgba(255,255,255,0.1)' },
+  palette: { flexDirection: 'row', justifyContent: 'center', gap: 12 },
+  paletteBtn: { width: 70, aspectRatio: 1, backgroundColor: 'rgba(40,40,60,0.8)', borderRadius: 16, justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: 'rgba(255,255,255,0.1)' },
   paletteIcon: { fontSize: 24, color: '#aaa' },
 });

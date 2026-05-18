@@ -1,9 +1,6 @@
-/**
- * Pasek statusu BLE — pokazuje stan Bluetooth i nadawania.
- */
-
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 interface StatusBarProps {
   bluetoothState: string;
@@ -18,6 +15,8 @@ const BleStatusBar: React.FC<StatusBarProps> = ({
   lastCommand,
   isConnected,
 }) => {
+  const { t } = useTranslation();
+
   const getBtIcon = () => {
     switch (bluetoothState) {
       case 'PoweredOn':
@@ -36,19 +35,19 @@ const BleStatusBar: React.FC<StatusBarProps> = ({
           {getBtIcon()} BT: {bluetoothState === 'PoweredOn' ? 'ON' : bluetoothState}
         </Text>
         <Text style={styles.label}>
-          {isBroadcasting ? '📡 Nadaję' : '⏸️ Stop'}
+          {isBroadcasting ? t('status.broadcasting') : t('status.stop')}
         </Text>
         {isConnected !== undefined && (
           <View style={[styles.connectionBadge, isConnected ? styles.connected : styles.disconnected]}>
             <Text style={styles.connectionText}>
-              {isConnected ? '🟢 Połączono z CaDA' : '🔴 Rozłączono'}
+              {isConnected ? t('status.connected') : t('status.disconnected')}
             </Text>
           </View>
         )}
       </View>
       {lastCommand && (
         <Text style={styles.command} numberOfLines={1}>
-          Ostatnia: {lastCommand}
+          {t('status.last')}: {lastCommand}
         </Text>
       )}
     </View>

@@ -1,0 +1,99 @@
+{
+  "tabs": {
+    "control": "Control",
+    "blocks": "Blocks",
+    "draw": "Draw",
+    "debug": "Debug",
+    "scanner": "Scanner"
+  },
+  "welcome": {
+    "title": "GARAGE",
+    "subtitle": "Choose your vehicle",
+    "startEngine": "START ENGINE"
+  },
+  "scanner": {
+    "unknownDevice": "Unknown device",
+    "scan": "Scan",
+    "stop": "Stop",
+    "all": "All",
+    "devices": "devices",
+    "total": "total",
+    "type": "Type",
+    "searchingCada": "Searching for CaDA devices...\nMake sure the car is turned on",
+    "scanning": "Scanning...",
+    "pressScan": "Press 'Scan' to start\nsearching for BLE devices"
+  },
+  "control": {
+    "initializing": "Initializing...",
+    "ready": "Ready — PC Replay Mode",
+    "errorBle": "BLE Init Error",
+    "active": "Active",
+    "idle": "Waiting (IDLE)",
+    "backToGarage": "◀ Back to Garage"
+  },
+  "blocks": {
+    "fwd": "FORWARD",
+    "rev": "REVERSE",
+    "left": "LEFT",
+    "right": "RIGHT",
+    "fwdLeft": "FWD + LEFT",
+    "fwdRight": "FWD + RIGHT",
+    "revLeft": "REV + LEFT",
+    "revRight": "REV + RIGHT",
+    "title": "AUTOPILOT",
+    "subtitle": "Block Programming",
+    "emptyText": "Add commands from the bottom palette to program the route.",
+    "stop": "⏹ STOP",
+    "run": "▶ RUN",
+    "clear": "Clear",
+    "directions": "DIRECTIONS"
+  },
+  "draw": {
+    "errorTitle": "SVG Module Failure!",
+    "errorMsg": "Error content:",
+    "title": "DRAW",
+    "executing": "Executing",
+    "drawHint": "Draw a route with your finger",
+    "diagonalHint": "Diagonal lines = diagonal commands",
+    "run": "▶ FOLLOW THE ROUTE",
+    "stop": "⏹ STOP",
+    "clear": "Clear",
+    "legendStart": "Start",
+    "legendEnd": "End",
+    "legendRoute": "Route (diagonal)"
+  },
+  "debug": {
+    "error": "Error",
+    "invalidHex": "Enter valid hex bytes",
+    "saved": "Saved ✓",
+    "savedAs": "Command saved as",
+    "bytesToSend": "📝 Bytes to send (hex)",
+    "sendOnce": "📡 Send once",
+    "stopRepeat": "⏹ Stop repeat",
+    "repeat": "🔄 Repeat",
+    "stopAll": "🛑 STOP ALL",
+    "quickValues": "⚡ Quick values for byte[0]",
+    "history": "📋 History",
+    "testPatterns": "🧪 Test patterns (hypotheses)",
+    "patternHint": "Press to send. These patterns are hypotheses — test them with the car turned on!",
+    "tips": "ℹ️ Tips",
+    "tipsText": "• Turn on the car and keep it close to the phone (~1m)\n• Press a pattern and observe the reaction\n• If something works — long press in History to save\n• Try changing individual bytes\n• MFG ID: 0xC200 (49664) — set automatically\n• Packet length: 16 bytes",
+    "savedCommands": "💾 Saved commands",
+    "holdToSave": "Long press a command in history to save it",
+    "liveTracking": "📡 Live tracking (Raw Bytes)",
+    "trackingHint": "Preview of raw bytes broadcast in the air by nearby devices.\nA tool for diagnosing CaDA and more!",
+    "unknown": "Unknown",
+    "noBroadcastData": "No broadcast data",
+    "suspectType": "🚗 Suspect: Type"
+  },
+  "status": {
+    "broadcasting": "📡 Broadcasting",
+    "stop": "⏸️ Stop",
+    "connected": "🟢 Connected to CaDA",
+    "disconnected": "🔴 Disconnected",
+    "last": "Last"
+  },
+  "common": {
+    "loading": "Initializing communication systems..."
+  }
+}

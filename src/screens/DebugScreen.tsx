@@ -1,8 +1,3 @@
-/**
- * Ekran Debugowania — ręczne testowanie bajtów komend.
- * Pozwala eksperymentalnie odkrywać protokół CaDA.
- */
-
 import React, { useState, useCallback, useRef } from 'react';
 import {
   View,
@@ -19,6 +14,7 @@ import BleStatusBar from '../components/StatusBar';
 import { broadcastCommand, stopBroadcast, initAdvertiser, getState } from '../services/BleAdvertiser';
 import { addScanListener, ScannedDevice } from '../services/BleScanner';
 import { TEST_PATTERNS, bytesToHex, hexToBytes, BLE_CONSTANTS, SavedCommand } from '../utils/commands';
+import { useTranslation } from 'react-i18next';
 
 interface HistoryEntry {
   id: string;
@@ -30,6 +26,7 @@ interface HistoryEntry {
 }
 
 const DebugScreen: React.FC = () => {
+  const { t } = useTranslation();
   const [hexInput, setHexInput] = useState('00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00');
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [btState, setBtState] = useState('PoweredOn');
@@ -40,7 +37,6 @@ const DebugScreen: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'send' | 'patterns' | 'saved' | 'logs'>('send');
   const [scannedLogs, setScannedLogs] = useState<ScannedDevice[]>([]);
 
-  // Inicjalizacja
   React.useEffect(() => {
     initAdvertiser().then(ok => {
       setBtState(ok ? 'PoweredOn' : 'Error');
@@ -48,7 +44,6 @@ const DebugScreen: React.FC = () => {
 
     const removeScanner = addScanListener((device) => {
       setScannedLogs(prev => {
-        // Dodaj nowy log na początek i przytnij do 30
         return [device, ...prev.filter(d => d.id !== device.id)].slice(0, 30);
       });
     });
@@ -62,11 +57,10 @@ const DebugScreen: React.FC = () => {
   const sendCurrentInput = useCallback(async () => {
     const bytes = hexToBytes(hexInput);
     if (bytes.length === 0) {
-      Alert.alert('Błąd', 'Wpisz prawidłowe bajty hex');
+      Alert.alert(t('debug.error'), t('debug.invalidHex'));
       return;
     }
 
-    // Pad do 16 bajtów
     while (bytes.length < BLE_CONSTANTS.DEFAULT_PACKET_LENGTH) {
       bytes.push(0);
     }
@@ -83,7 +77,7 @@ const DebugScreen: React.FC = () => {
       note: '',
     };
 
-    setHistory(prev => [entry, ...prev].slice(0, 100)); // Max 100 wpisów
+    setHistory(prev => [entry, ...prev].slice(0, 100));
     setLastCmd(hex);
   }, [hexInput]);
 
@@ -112,9 +106,7 @@ const DebugScreen: React.FC = () => {
       stopBroadcast();
     } else {
       setIsRepeating(true);
-      // Wyślij natychmiast
       sendCurrentInput();
-      // Powtarzaj co 150ms
       const interval = setInterval(() => {
         sendCurrentInput();
       }, 150);
@@ -139,8 +131,8 @@ const DebugScreen: React.FC = () => {
       timestamp: Date.now(),
       works: true,
     }]);
-    Alert.alert('Zapisano ✓', `Komenda zapisana jako "${name}"`);
-  }, [savedCommands.length]);
+    Alert.alert(t('debug.saved'), `${t('debug.savedAs')} "${name}"`);
+  }, [savedCommands.length, t]);
 
   const setByteAt = useCallback((index: number, value: string) => {
     const bytes = hexToBytes(hexInput);
@@ -154,9 +146,8 @@ const DebugScreen: React.FC = () => {
 
   const renderSendTab = () => (
     <ScrollView style={styles.tabContent}>
-      {/* Hex input */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>📝 Bajty do wysłania (hex)</Text>
+        <Text style={styles.sectionTitle}>{t('debug.bytesToSend')}</Text>
         <TextInput
           style={styles.hexInput}
           value={hexInput}
@@ -168,7 +159,6 @@ const DebugScreen: React.FC = () => {
           multiline={false}
         />
 
-        {/* Siatka bajtów */}
         <View style={styles.byteGrid}>
           {Array.from({ length: 16 }, (_, i) => {
             const bytes = hexToBytes(hexInput);
@@ -192,10 +182,9 @@ const DebugScreen: React.FC = () => {
         </View>
       </View>
 
-      {/* Przyciski akcji */}
       <View style={styles.actionRow}>
         <TouchableOpacity style={styles.sendBtn} onPress={sendCurrentInput}>
-          <Text style={styles.sendBtnText}>📡 Wyślij raz</Text>
+          <Text style={styles.sendBtnText}>{t('debug.sendOnce')}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -203,18 +192,17 @@ const DebugScreen: React.FC = () => {
           onPress={toggleRepeat}
         >
           <Text style={styles.sendBtnText}>
-            {isRepeating ? '⏹ Stop repeat' : '🔄 Powtarzaj'}
+            {isRepeating ? t('debug.stopRepeat') : t('debug.repeat')}
           </Text>
         </TouchableOpacity>
       </View>
 
       <TouchableOpacity style={styles.stopBtn} onPress={stopAll}>
-        <Text style={styles.stopBtnText}>🛑 STOP WSZYSTKO</Text>
+        <Text style={styles.stopBtnText}>{t('debug.stopAll')}</Text>
       </TouchableOpacity>
 
-      {/* Szybkie wartości */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>⚡ Szybkie wartości dla byte[0]</Text>
+        <Text style={styles.sectionTitle}>{t('debug.quickValues')}</Text>
         <View style={styles.quickRow}>
           {[0x00, 0x01, 0x02, 0x03, 0x04, 0x10, 0x20, 0xFF].map(val => (
             <TouchableOpacity
@@ -235,9 +223,8 @@ const DebugScreen: React.FC = () => {
         </View>
       </View>
 
-      {/* Historia */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>📋 Historia ({history.length})</Text>
+        <Text style={styles.sectionTitle}>{t('debug.history')} ({history.length})</Text>
         {history.slice(0, 20).map((entry) => (
           <TouchableOpacity
             key={entry.id}
@@ -263,9 +250,9 @@ const DebugScreen: React.FC = () => {
   const renderPatternsTab = () => (
     <ScrollView style={styles.tabContent}>
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>🧪 Wzorce testowe (hipotezy)</Text>
+        <Text style={styles.sectionTitle}>{t('debug.testPatterns')}</Text>
         <Text style={styles.sectionHint}>
-          Naciśnij aby wysłać. Te wzorce to hipotezy — testuj je z włączonym autkiem!
+          {t('debug.patternHint')}
         </Text>
       </View>
 
@@ -289,14 +276,9 @@ const DebugScreen: React.FC = () => {
       ))}
 
       <View style={[styles.section, { marginTop: 20 }]}>
-        <Text style={styles.sectionTitle}>ℹ️ Wskazówki</Text>
+        <Text style={styles.sectionTitle}>{t('debug.tips')}</Text>
         <Text style={styles.hintText}>
-          • Włącz autko i trzymaj blisko telefonu (~1m){'\n'}
-          • Naciśnij wzorzec i obserwuj reakcję{'\n'}
-          • Jeśli coś zadziała — przytrzymaj w Historii aby zapisać{'\n'}
-          • Próbuj zmieniać pojedyncze bajty{'\n'}
-          • MFG ID: 0xC200 (49664) — ustawione automatycznie{'\n'}
-          • Długość pakietu: 16 bajtów
+          {t('debug.tipsText')}
         </Text>
       </View>
     </ScrollView>
@@ -305,10 +287,10 @@ const DebugScreen: React.FC = () => {
   const renderSavedTab = () => (
     <ScrollView style={styles.tabContent}>
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>💾 Zapisane komendy</Text>
+        <Text style={styles.sectionTitle}>{t('debug.savedCommands')}</Text>
         {savedCommands.length === 0 && (
           <Text style={styles.emptyText}>
-            Przytrzymaj komendę w historii aby ją zapisać
+            {t('debug.holdToSave')}
           </Text>
         )}
       </View>
@@ -330,21 +312,20 @@ const DebugScreen: React.FC = () => {
   const renderLogsTab = () => (
     <ScrollView style={styles.tabContent}>
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>📡 Śledzenie na żywo (Raw Bytes)</Text>
+        <Text style={styles.sectionTitle}>{t('debug.liveTracking')}</Text>
         <Text style={styles.sectionHint}>
-          Podgląd surowych bajtów rozsiewanych w powietrzu przez okoliczne urządzenia.
-          Narzędzie do diagnozy CaDA i nie tylko!
+          {t('debug.trackingHint')}
         </Text>
       </View>
 
       {scannedLogs.map((log, i) => (
         <View key={log.id} style={styles.logCard}>
           <View style={styles.logHeader}>
-            <Text style={styles.logName}>{log.name || 'Nieznane'}</Text>
+            <Text style={styles.logName}>{log.name || t('debug.unknown')}</Text>
             <Text style={styles.logMac}>{log.id}</Text>
           </View>
           <Text style={styles.logTime}>
-            RSSI: {log.rssi} | Złapano: {new Date(log.timestamp).toLocaleTimeString()}
+            RSSI: {log.rssi} | Caught: {new Date(log.timestamp).toLocaleTimeString()}
           </Text>
           
           {log.rawHex ? (
@@ -353,11 +334,11 @@ const DebugScreen: React.FC = () => {
               <Text style={styles.logPayload}>{log.rawHex}</Text>
             </View>
           ) : (
-            <Text style={styles.logEmpty}>Brak danych rozgłoszeniowych</Text>
+            <Text style={styles.logEmpty}>{t('debug.noBroadcastData')}</Text>
           )}
 
           {log.isCaDA && (
-            <Text style={styles.logCadaBadge}>🚗 Podejrzany: Typ {log.type}</Text>
+            <Text style={styles.logCadaBadge}>{t('debug.suspectType')} {log.type}</Text>
           )}
         </View>
       ))}
@@ -372,7 +353,6 @@ const DebugScreen: React.FC = () => {
         lastCommand={lastCmd}
       />
 
-      {/* Taby */}
       <View style={styles.tabs}>
         {(['send', 'patterns', 'saved', 'logs'] as const).map(tab => (
           <TouchableOpacity

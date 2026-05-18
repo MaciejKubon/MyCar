@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 export default function SplashScreen({ navigation }: any) {
+  const { t } = useTranslation();
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(0.8)).current;
 
   useEffect(() => {
-    // Animacja wejścia (Fade In + Scale)
     Animated.parallel([
       Animated.timing(fadeAnim, {
         toValue: 1,
@@ -21,9 +22,7 @@ export default function SplashScreen({ navigation }: any) {
       })
     ]).start();
 
-    // Po 2.5 sekundach płynne przejście do garażu
     const timer = setTimeout(() => {
-        // Zanikanie
         Animated.timing(fadeAnim, {
             toValue: 0,
             duration: 500,
@@ -47,7 +46,7 @@ export default function SplashScreen({ navigation }: any) {
       </Animated.View>
       
       <Animated.View style={[styles.footer, { opacity: fadeAnim }]}>
-         <Text style={styles.footerText}>Inicjowanie systemów łączności...</Text>
+         <Text style={styles.footerText}>{t('common.loading')}</Text>
       </Animated.View>
     </View>
   );

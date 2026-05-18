@@ -1,8 +1,3 @@
-/**
- * Wirtualny Joystick — proporcjonalne sterowanie.
- * Reaguje na dotknięcie i przesunięcie palca.
- * Zwraca wartości X (-1..1) i Y (-1..1).
- */
 
 import React, { useRef, useState, useCallback } from 'react';
 import {
@@ -49,7 +44,7 @@ const Joystick: React.FC<JoystickProps> = ({
       onPanResponderMove: (_, gestureState) => {
         const { dx, dy } = gestureState;
 
-        // Ogranicz do koła
+
         const distance = Math.sqrt(dx * dx + dy * dy);
         let clampedX = dx;
         let clampedY = dy;
@@ -62,9 +57,9 @@ const Joystick: React.FC<JoystickProps> = ({
 
         pan.setValue({ x: clampedX, y: clampedY });
 
-        // Normalizuj do -1..1
+
         const normalizedX = clamp(clampedX / maxDistance, -1, 1);
-        const normalizedY = clamp(-clampedY / maxDistance, -1, 1); // Y odwrócony
+        const normalizedY = clamp(-clampedY / maxDistance, -1, 1);
 
         onMove(normalizedX, normalizedY);
       },
@@ -93,11 +88,11 @@ const Joystick: React.FC<JoystickProps> = ({
         },
       ]}
     >
-      {/* Krzyżyk */}
+
       <View style={[styles.crossH, { width: size * 0.6 }]} />
       <View style={[styles.crossV, { height: size * 0.6 }]} />
 
-      {/* Knob */}
+
       <Animated.View
         {...panResponder.panHandlers}
         style={[

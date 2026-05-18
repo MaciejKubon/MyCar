@@ -1,7 +1,3 @@
-/**
- * Ekran Skanera BLE — wyszukiwanie urządzeń CaDA.
- */
-
 import React, { useState, useEffect, useCallback } from 'react';
 import {
   View,
@@ -15,21 +11,21 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { startGlobalScan, stopScan, addScanListener, ScannedDevice, checkBluetoothState, onStateChange } from '../services/BleScanner';
 import BleStatusBar from '../components/StatusBar';
+import { useTranslation } from 'react-i18next';
 
 const ScannerScreen: React.FC = () => {
+  const { t } = useTranslation();
   const [devices, setDevices] = useState<Map<string, ScannedDevice>>(new Map());
   const [isScanning, setIsScanning] = useState(false);
   const [btState, setBtState] = useState('Unknown');
   const [filter, setFilter] = useState<'all' | 'cada'>('cada');
 
   useEffect(() => {
-    // Nasłuchuj zmian stanu Bluetooth
     const unsubState = onStateChange((state) => {
       setBtState(state);
     });
 
     requestPermissions().then(() => {
-      // Automatycznie startujemy globalny skaner
       startGlobalScan();
       setIsScanning(true);
     });
@@ -42,7 +38,6 @@ const ScannerScreen: React.FC = () => {
   useEffect(() => {
     if (!isScanning) return;
     
-    // Obserwuj globalne wyniki skanera
     const removeListener = addScanListener((device) => {
       setDevices(prev => {
         const next = new Map(prev);
@@ -88,7 +83,6 @@ const ScannerScreen: React.FC = () => {
     if (filter === 'cada') {
       return all.filter(d => d.isCaDA);
     }
-    // Sortuj: CaDA najpierw, potem po RSSI
     return all.sort((a, b) => {
       if (a.isCaDA && !b.isCaDA) return -1;
       if (!a.isCaDA && b.isCaDA) return 1;
@@ -119,7 +113,7 @@ const ScannerScreen: React.FC = () => {
         <View style={styles.deviceNameRow}>
           {item.isCaDA && <Text style={styles.cadaBadge}>🚗 CaDA</Text>}
           <Text style={styles.deviceName}>
-            {item.name || 'Nieznane urządzenie'}
+            {item.name || t('scanner.unknownDevice')}
           </Text>
         </View>
         <View style={styles.rssiContainer}>
@@ -136,7 +130,7 @@ const ScannerScreen: React.FC = () => {
         <Text style={styles.deviceId}>{item.id}</Text>
         {item.isCaDA && (
           <Text style={styles.deviceType}>
-            Typ: {item.type === 'HS' ? '🔵 HS (HSZ_HS)' : '🟢 PC (0xFFF0)'}
+            {t('scanner.type')}: {item.type === 'HS' ? '🔵 HS (HSZ_HS)' : '🟢 PC (0xFFF0)'}
           </Text>
         )}
         {item.manufacturerData && (
@@ -154,14 +148,13 @@ const ScannerScreen: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <BleStatusBar bluetoothState={btState} isBroadcasting={false} />
 
-      {/* Kontrolki */}
       <View style={styles.controls}>
         <TouchableOpacity
           style={[styles.scanBtn, isScanning && styles.scanBtnActive]}
           onPress={toggleScan}
         >
           <Text style={styles.scanBtnText}>
-            {isScanning ? '⏹ Zatrzymaj' : '📡 Skanuj'}
+            {isScanning ? `⏹ ${t('scanner.stop')}` : `📡 ${t('scanner.scan')}`}
           </Text>
         </TouchableOpacity>
 
@@ -179,17 +172,16 @@ const ScannerScreen: React.FC = () => {
             onPress={() => setFilter('all')}
           >
             <Text style={[styles.filterText, filter === 'all' && styles.filterTextActive]}>
-              Wszystkie
+              {t('scanner.all')}
             </Text>
           </TouchableOpacity>
         </View>
 
         <Text style={styles.countText}>
-          {deviceList.length} urządzeń • {devices.size} total
+          {deviceList.length} {t('scanner.devices')} • {devices.size} {t('scanner.total')}
         </Text>
       </View>
 
-      {/* Lista */}
       <FlatList
         data={deviceList}
         keyExtractor={(item) => item.id}
@@ -203,9 +195,9 @@ const ScannerScreen: React.FC = () => {
             <Text style={styles.emptyText}>
               {isScanning
                 ? filter === 'cada'
-                  ? 'Szukam urządzeń CaDA...\nUpewnij się, że autko jest włączone'
-                  : 'Skanowanie...'
-                : 'Naciśnij "Skanuj" aby rozpocząć\nwyszukiwanie urządzeń BLE'}
+                  ? t('scanner.searchingCada')
+                  : t('scanner.scanning')
+                : t('scanner.pressScan')}
             </Text>
           </View>
         }

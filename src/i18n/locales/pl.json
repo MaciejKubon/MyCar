@@ -1,0 +1,99 @@
+{
+  "tabs": {
+    "control": "Sterowanie",
+    "blocks": "Klocki",
+    "draw": "Rysik",
+    "debug": "Debug",
+    "scanner": "Skaner"
+  },
+  "welcome": {
+    "title": "GARAŻ",
+    "subtitle": "Wybierz swój pojazd",
+    "startEngine": "URUCHOM SILNIK"
+  },
+  "scanner": {
+    "unknownDevice": "Nieznane urządzenie",
+    "scan": "Skanuj",
+    "stop": "Zatrzymaj",
+    "all": "Wszystkie",
+    "devices": "urządzeń",
+    "total": "total",
+    "type": "Typ",
+    "searchingCada": "Szukam urządzeń CaDA...\nUpewnij się, że autko jest włączone",
+    "scanning": "Skanowanie...",
+    "pressScan": "Naciśnij \"Skanuj\" aby rozpocząć\nwyszukiwanie urządzeń BLE"
+  },
+  "control": {
+    "initializing": "Inicjalizacja...",
+    "ready": "Gotowy — Tryb Replay PC",
+    "errorBle": "Błąd inicjalizacji BLE",
+    "active": "Aktywne",
+    "idle": "Oczekuję (IDLE)",
+    "backToGarage": "◀ Powrót do Garażu"
+  },
+  "blocks": {
+    "fwd": "DO PRZODU",
+    "rev": "DO TYŁU",
+    "left": "W LEWO",
+    "right": "W PRAWO",
+    "fwdLeft": "PRZÓD + LEWO",
+    "fwdRight": "PRZÓD + PRAWO",
+    "revLeft": "TYŁ + LEWO",
+    "revRight": "TYŁ + PRAWO",
+    "title": "AUTOPILOT",
+    "subtitle": "Programowanie z Klocków",
+    "emptyText": "Dodaj komendy z dolnej palety, aby zaprogramować trasę.",
+    "stop": "⏹ ZATRZYMAJ",
+    "run": "▶ URUCHOM",
+    "clear": "Wyczyść",
+    "directions": "KIERUNKI"
+  },
+  "draw": {
+    "errorTitle": "Awaria Modułu SVG!",
+    "errorMsg": "Treść błędu:",
+    "title": "RYSIK",
+    "executing": "Wykonuję",
+    "drawHint": "Narysuj trasę palcem",
+    "diagonalHint": "Ukośne linie = komendy diagonalne",
+    "run": "▶ JEDŹ WEDŁUG TRASY",
+    "stop": "⏹ ZATRZYMAJ",
+    "clear": "Usuń",
+    "legendStart": "Start",
+    "legendEnd": "Koniec",
+    "legendRoute": "Trasa (skos = diagonal)"
+  },
+  "debug": {
+    "error": "Błąd",
+    "invalidHex": "Wpisz prawidłowe bajty hex",
+    "saved": "Zapisano ✓",
+    "savedAs": "Komenda zapisana jako",
+    "bytesToSend": "📝 Bajty do wysłania (hex)",
+    "sendOnce": "📡 Wyślij raz",
+    "stopRepeat": "⏹ Stop repeat",
+    "repeat": "🔄 Powtarzaj",
+    "stopAll": "🛑 STOP WSZYSTKO",
+    "quickValues": "⚡ Szybkie wartości dla byte[0]",
+    "history": "📋 Historia",
+    "testPatterns": "🧪 Wzorce testowe (hipotezy)",
+    "patternHint": "Naciśnij aby wysłać. Te wzorce to hipotezy — testuj je z włączonym autkiem!",
+    "tips": "ℹ️ Wskazówki",
+    "tipsText": "• Włącz autko i trzymaj blisko telefonu (~1m)\n• Naciśnij wzorzec i obserwuj reakcję\n• Jeśli coś zadziała — przytrzymaj w Historii aby zapisać\n• Próbuj zmieniać pojedyncze bajty\n• MFG ID: 0xC200 (49664) — ustawione automatycznie\n• Długość pakietu: 16 bajtów",
+    "savedCommands": "💾 Zapisane komendy",
+    "holdToSave": "Przytrzymaj komendę w historii aby ją zapisać",
+    "liveTracking": "📡 Śledzenie na żywo (Raw Bytes)",
+    "trackingHint": "Podgląd surowych bajtów rozsiewanych w powietrzu przez okoliczne urządzenia.\nNarzędzie do diagnozy CaDA i nie tylko!",
+    "unknown": "Nieznane",
+    "noBroadcastData": "Brak danych rozgłoszeniowych",
+    "suspectType": "🚗 Podejrzany: Typ"
+  },
+  "status": {
+    "broadcasting": "📡 Nadaję",
+    "stop": "⏸️ Stop",
+    "connected": "🟢 Połączono z CaDA",
+    "disconnected": "🔴 Rozłączono",
+    "last": "Ostatnia"
+  },
+  "common": {
+    "loading": "Inicjowanie systemów łączności..."
+  }
+}

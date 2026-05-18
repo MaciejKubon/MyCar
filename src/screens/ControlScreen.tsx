@@ -1,6 +1,3 @@
-/**
- * Ekran Sterowania — D-Pad (Replay Attack) dla modelu PC (0xFFF0).
- */
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
@@ -8,33 +5,47 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import BleStatusBar from '../components/StatusBar';
 import { broadcastCommand, sendStop, initAdvertiser, getState } from '../services/BleAdvertiser';
 import { useCaDAConnection } from '../services/BleScanner';
-import { CADA_PC_COMMANDS, BLE_CONSTANTS } from '../utils/commands';
+import { CADA_PC_COMMANDS } from '../utils/commands';
+import { useTranslation } from 'react-i18next';
+
+type DirKey = 'FWD' | 'REV' | 'LEFT' | 'RIGHT' | 'FWD_LEFT' | 'FWD_RIGHT' | 'REV_LEFT' | 'REV_RIGHT';
+
+const DIR_CMD: Record<DirKey, number[]> = {
+  'FWD':       CADA_PC_COMMANDS.FWD,
+  'REV':         CADA_PC_COMMANDS.REV,
+  'LEFT':         CADA_PC_COMMANDS.LEFT,
+  'RIGHT':        CADA_PC_COMMANDS.RIGHT,
+  'FWD_LEFT':  CADA_PC_COMMANDS.FWD_LEFT,
+  'FWD_RIGHT': CADA_PC_COMMANDS.FWD_RIGHT,
+  'REV_LEFT':    CADA_PC_COMMANDS.REV_LEFT,
+  'REV_RIGHT':   CADA_PC_COMMANDS.REV_RIGHT,
+};
 
 const ControlScreen: React.FC<any> = ({ navigation }) => {
-  const [status, setStatus] = useState('Inicjalizacja...');
+  const { t } = useTranslation();
+  const [status, setStatus] = useState(t('control.initializing'));
   const [btState, setBtState] = useState('Unknown');
   const [lastCmd, setLastCmd] = useState('');
-  const [activeBtn, setActiveBtn] = useState<string | null>(null);
+  const [activeDirs, setActiveDirs] = useState<Set<DirKey>>(new Set());
   const isConnected = useCaDAConnection();
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const activeCommandRef = useRef<number[] | null>(null);
-  
-  // Bezpieczne marginesy dla wcięć ekranu (notch, pasek nawigacyjny)
+  const activeDirsRef = useRef<Set<DirKey>>(new Set());
   const insets = useSafeAreaInsets();
 
   useEffect(() => {
     (async () => {
       const ok = await initAdvertiser();
       if (ok) {
-        setStatus('Gotowy — Tryb Replay PC');
+        setStatus(t('control.ready'));
         setBtState('PoweredOn');
       } else {
-        setStatus('Błąd inicjalizacji BLE');
+        setStatus(t('control.errorBle'));
         setBtState('Error');
       }
     })();
@@ -44,39 +55,35 @@ const ControlScreen: React.FC<any> = ({ navigation }) => {
     };
   }, []);
 
-  const sendDirectCommand = useCallback(async (cmdArray: number[], label: string) => {
-    activeCommandRef.current = cmdArray;
-    setActiveBtn(label);
-    
-    // Nadaj od razu, szybka reakcja
-    const ok = await broadcastCommand(cmdArray, true);
-    if (ok) {
-      setLastCmd(label);
-      setStatus(`Włączono napęd: ${label}`);
-    }
 
-    // Odnów interwał podtrzymywania komendy
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    intervalRef.current = setInterval(() => {
-      if (activeCommandRef.current) {
-        broadcastCommand(activeCommandRef.current);
-      }
-    }, BLE_CONSTANTS.MIN_INTERVAL_MS);
+
+
+  const handlePressIn = useCallback((dir: DirKey) => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    
+    const cmd = DIR_CMD[dir];
+    activeDirsRef.current = new Set([dir]);
+    setActiveDirs(new Set([dir]));
+    setStatus(`${t('control.active')}: ${dir}`);
+    setLastCmd(dir);
+    
+    broadcastCommand(cmd, true);
+    intervalRef.current = setInterval(() => broadcastCommand(cmd), 40);
   }, []);
 
-  const handleStop = useCallback(async () => {
-    activeCommandRef.current = null;
-    setActiveBtn(null);
+  const handlePressOut = useCallback((dir: DirKey) => {
+    const newDirs = new Set(activeDirsRef.current);
+    newDirs.delete(dir);
+    activeDirsRef.current = newDirs;
+    setActiveDirs(newDirs);
     
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
+    if (newDirs.size === 0) {
+      if (intervalRef.current) clearInterval(intervalRef.current);
       intervalRef.current = null;
+      sendStop();
+      setStatus(t('control.idle'));
+      setLastCmd('STOP');
     }
-    await sendStop(); 
-    setStatus('Oczekuję (IDLE)');
-    setLastCmd('STOP');
   }, []);
 
   return (
@@ -94,63 +101,62 @@ const ControlScreen: React.FC<any> = ({ navigation }) => {
             style={styles.backBtn}
             onPress={() => navigation.navigate('Welcome')}
           >
-            <Text style={styles.backBtnText}>◀ Powrót do Garażu</Text>
+            <Text style={styles.backBtnText}>{t('control.backToGarage')}</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.header}>
           <Text style={styles.status}>{status}</Text>
-          <Text style={styles.subtitle}>Sklonowane polecenia dla 0xFFF0</Text>
+          <Image
+            source={require('../../assets/car_top.png')}
+            style={styles.carImage}
+            resizeMode="contain"
+          />
         </View>
 
         <View style={styles.dpadWrapper}>
           <View style={styles.dpadInnerGlow}>
-            {/* Przycisk Przód */}
-            <TouchableOpacity
-              style={[styles.dpadBtn, styles.dpadUp, activeBtn === 'PRZÓD' && styles.dpadActive]}
-              onPressIn={() => sendDirectCommand(CADA_PC_COMMANDS.FWD, 'PRZÓD')}
-              onPressOut={handleStop}
-              activeOpacity={0.8}
-            >
-              <Text style={[styles.dpadIcon, activeBtn === 'PRZÓD' && styles.dpadIconActive]}>▲</Text>
-            </TouchableOpacity>
-
             <View style={styles.dpadRow}>
-              {/* Przycisk Lewo */}
-              <TouchableOpacity
-                style={[styles.dpadBtn, styles.dpadSide, activeBtn === 'LEWO' && styles.dpadActive]}
-                onPressIn={() => sendDirectCommand(CADA_PC_COMMANDS.LEFT, 'LEWO')}
-                onPressOut={handleStop}
-                activeOpacity={0.8}
-              >
-                <Text style={[styles.dpadIcon, activeBtn === 'LEWO' && styles.dpadIconActive]}>◀</Text>
+              <TouchableOpacity style={[styles.dpadBtn, styles.dpadDiag, activeDirs.has('FWD_LEFT') && styles.dpadActive]}
+                onPressIn={() => handlePressIn('FWD_LEFT')} onPressOut={() => handlePressOut('FWD_LEFT')} activeOpacity={0.8}>
+                <Text style={styles.dpadIcon}>↖</Text>
               </TouchableOpacity>
-
-              {/* Przycisk STOP (Center) */}
-              <View style={styles.dpadCenter}>
-                <View style={styles.dpadCenterDot} />
-              </View>
-
-              {/* Przycisk Prawo */}
-              <TouchableOpacity
-                style={[styles.dpadBtn, styles.dpadSide, activeBtn === 'PRAWO' && styles.dpadActive]}
-                onPressIn={() => sendDirectCommand(CADA_PC_COMMANDS.RIGHT, 'PRAWO')}
-                onPressOut={handleStop}
-                activeOpacity={0.8}
-              >
-                <Text style={[styles.dpadIcon, activeBtn === 'PRAWO' && styles.dpadIconActive]}>▶</Text>
+              <TouchableOpacity style={[styles.dpadBtn, styles.dpadUp, activeDirs.has('FWD') && styles.dpadActive]}
+                onPressIn={() => handlePressIn('FWD')} onPressOut={() => handlePressOut('FWD')} activeOpacity={0.8}>
+                <Text style={styles.dpadIcon}>▲</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={[styles.dpadBtn, styles.dpadDiag, activeDirs.has('FWD_RIGHT') && styles.dpadActive]}
+                onPressIn={() => handlePressIn('FWD_RIGHT')} onPressOut={() => handlePressOut('FWD_RIGHT')} activeOpacity={0.8}>
+                <Text style={styles.dpadIcon}>↗</Text>
               </TouchableOpacity>
             </View>
 
-            {/* Przycisk Tył */}
-            <TouchableOpacity
-              style={[styles.dpadBtn, styles.dpadDown, activeBtn === 'TYŁ' && styles.dpadActive]}
-              onPressIn={() => sendDirectCommand(CADA_PC_COMMANDS.REV, 'TYŁ')}
-              onPressOut={handleStop}
-              activeOpacity={0.8}
-            >
-              <Text style={[styles.dpadIcon, activeBtn === 'TYŁ' && styles.dpadIconActive]}>▼</Text>
-            </TouchableOpacity>
+            <View style={styles.dpadRow}>
+              <TouchableOpacity style={[styles.dpadBtn, styles.dpadSide, activeDirs.has('LEFT') && styles.dpadActive]}
+                onPressIn={() => handlePressIn('LEFT')} onPressOut={() => handlePressOut('LEFT')} activeOpacity={0.8}>
+                <Text style={styles.dpadIcon}>◀</Text>
+              </TouchableOpacity>
+              <View style={styles.dpadCenter}><View style={styles.dpadCenterDot} /></View>
+              <TouchableOpacity style={[styles.dpadBtn, styles.dpadSide, activeDirs.has('RIGHT') && styles.dpadActive]}
+                onPressIn={() => handlePressIn('RIGHT')} onPressOut={() => handlePressOut('RIGHT')} activeOpacity={0.8}>
+                <Text style={styles.dpadIcon}>▶</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.dpadRow}>
+              <TouchableOpacity style={[styles.dpadBtn, styles.dpadDiag, activeDirs.has('REV_LEFT') && styles.dpadActive]}
+                onPressIn={() => handlePressIn('REV_LEFT')} onPressOut={() => handlePressOut('REV_LEFT')} activeOpacity={0.8}>
+                <Text style={styles.dpadIcon}>↙</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={[styles.dpadBtn, styles.dpadDown, activeDirs.has('REV') && styles.dpadActive]}
+                onPressIn={() => handlePressIn('REV')} onPressOut={() => handlePressOut('REV')} activeOpacity={0.8}>
+                <Text style={styles.dpadIcon}>▼</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={[styles.dpadBtn, styles.dpadDiag, activeDirs.has('REV_RIGHT') && styles.dpadActive]}
+                onPressIn={() => handlePressIn('REV_RIGHT')} onPressOut={() => handlePressOut('REV_RIGHT')} activeOpacity={0.8}>
+                <Text style={styles.dpadIcon}>↘</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </View>
@@ -189,6 +195,13 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
+    marginVertical: 4,
+  },
+  carImage: {
+    width: 140,
+    height: 140,
+    marginTop: 6,
+    opacity: 0.92,
   },
   status: { 
     color: '#00FA9A', 
@@ -222,13 +235,13 @@ const styles = StyleSheet.create({
     marginVertical: 4 
   },
   dpadBtn: {
-    width: 80, 
-    height: 80,
-    borderRadius: 24,
+    width: 70, 
+    height: 70,
+    borderRadius: 20,
     backgroundColor: 'rgba(30, 30, 45, 0.8)',
     justifyContent: 'center', 
     alignItems: 'center',
-    marginHorizontal: 4,
+    marginHorizontal: 3,
     borderWidth: 1, 
     borderColor: 'rgba(255, 255, 255, 0.1)',
     elevation: 5,
@@ -236,6 +249,10 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 5,
+  },
+  dpadDiag: {
+    backgroundColor: 'rgba(20, 20, 35, 0.6)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
   },
   dpadActive: {
     backgroundColor: 'rgba(108, 99, 255, 0.4)',
@@ -246,12 +263,12 @@ const styles = StyleSheet.create({
     shadowRadius: 15,
     elevation: 10,
   },
-  dpadUp: { marginBottom: 4 },
-  dpadDown: { marginTop: 4 },
+  dpadUp: {},
+  dpadDown: {},
   dpadSide: {},
   dpadCenter: { 
-    width: 80, 
-    height: 80, 
+    width: 70, 
+    height: 70, 
     justifyContent: 'center', 
     alignItems: 'center' 
   },
@@ -263,8 +280,12 @@ const styles = StyleSheet.create({
   },
   dpadIcon: { 
     color: '#888', 
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: '900',
+  },
+  diagIcon: {
+    fontSize: 22,
+    opacity: 0.7,
   },
   dpadIconActive: {
     color: '#fff',

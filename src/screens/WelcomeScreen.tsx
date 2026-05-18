@@ -7,9 +7,11 @@ import {
   Platform,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 export default function WelcomeScreen({ navigation }: any) {
-  // Przejście do głównego Tab Navigatora
+  const { t } = useTranslation();
+
   const handleSelectCar = () => {
     navigation.navigate('MainTabs'); 
   };
@@ -17,19 +19,16 @@ export default function WelcomeScreen({ navigation }: any) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>GARAŻ</Text>
-        <Text style={styles.subtitle}>Wybierz swój pojazd</Text>
+        <Text style={styles.title}>{t('welcome.title')}</Text>
+        <Text style={styles.subtitle}>{t('welcome.subtitle')}</Text>
       </View>
 
       <View style={styles.carousel}>
-        {/* Karta samochodu */}
         <View style={styles.carCard}>
-          {/* Ozdobne tło karty / neon */}
           <View style={styles.neonGlow} />
           <View style={styles.neonGlowRight} />
 
           <View style={styles.cardContent}>
-            {/* Wygenerowana grafika geometryczna samochodu */}
             <View style={styles.carVisual}>
               <Text style={styles.carEmoji}>🏎️💨</Text>
             </View>
@@ -51,7 +50,7 @@ export default function WelcomeScreen({ navigation }: any) {
               onPress={handleSelectCar}
               activeOpacity={0.8}
             >
-              <Text style={styles.actionBtnText}>START ENGINE</Text>
+              <Text style={styles.actionBtnText}>{t('welcome.startEngine')}</Text>
             </TouchableOpacity>
           </View>
         </View>
